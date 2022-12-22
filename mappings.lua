@@ -6,7 +6,6 @@ M.custom = {
      ["<C-A>"] = {"gg0VG$", "Select all"},
      ["<Enter>"] = {"o<ESC>", "New line below"},
      ["<S-Enter>"] = {"O<ESC>", "New line above"},
-     ["p"] = {"_dP"},
   },
 
   i = {
