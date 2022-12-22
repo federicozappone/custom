@@ -24,6 +24,12 @@ return {
         -- python
         "pyright",
         "black",
+
+        -- latex
+        "ltex-ls",
+
+        -- bash
+        "bash-language-server",
       },
     },
   },

@@ -3,7 +3,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "clangd", "pyright" }
+local servers = { "clangd", "pyright", "ltex-ls", "bash-language-server" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -11,26 +11,6 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-
--- lspconfig['pylsp'].setup{
---     on_attach = on_attach,
---     capabilities = capabilities,
---
---     settings = {
---         pylsp = {
---             plugins = {
---                 pycodestyle = {
---                 enabled = true,
---                 ignore = {"E231","E265","E201","E226","E222", "W391", "E261",
---                           "E303", "E121", "E123", "E124", "E127", "E126", "E301"},
---                 count = false,
---                 statistics = true,
---                 maxLineLength = 160,
---                 }
---             }
---         }
---     }
--- }
 
 lspconfig['clangd'].setup{
     on_attach = on_attach,
