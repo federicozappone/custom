@@ -12,17 +12,17 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig['clangd'].setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
+lspconfig["clangd"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
 
-    cmd = {"clangd",
-        -- "--header-insertion=iwyu",
-        "--header-insertion-decorators",
-        "--offset-encoding=utf-16",
-        "--header-insertion=never",
-        "--all-scopes-completion",
-        "--completion-style=bundled",
-    },
+  cmd = {
+    "clangd",
+    -- "--header-insertion=iwyu",
+    "--header-insertion-decorators",
+    "--offset-encoding=utf-16",
+    "--header-insertion=never",
+    "--all-scopes-completion",
+    "--completion-style=bundled",
+  },
 }
-

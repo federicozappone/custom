@@ -11,7 +11,7 @@ local options = {
     "lua",
     "c",
     "cpp",
-    "python"
+    "python",
   },
 
   highlight = {
@@ -28,4 +28,3 @@ local options = {
 options = require("core.utils").load_override(options, "nvim-treesitter/nvim-treesitter")
 
 treesitter.setup(options)
-
