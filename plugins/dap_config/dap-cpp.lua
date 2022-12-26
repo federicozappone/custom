@@ -1,6 +1,6 @@
 local present,dap = pcall(require, 'dap')
 if not present then
-    print("not find dap")
+    print("Couldn't find dap")
     return
 end
 
