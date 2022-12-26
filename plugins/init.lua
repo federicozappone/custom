@@ -38,6 +38,26 @@ return {
     end,
   },
 
+  ["ggandor/lightspeed.nvim"] = {
+    event = "BufRead",
+  },
+
+  ["tpope/vim-repeat"] = {},
+
+  ["kylechui/nvim-surround"] = {
+    tag = "*",
+    config = function()
+      require("nvim-surround").setup()
+    end,
+  },
+
+  ["karb94/neoscroll.nvim"] = {
+    event = "WinScrolled",
+    config = function()
+      require "custom.plugins.neoscroll"
+    end,
+  },
+
   -- LSP stuff
 
   ["simrat39/symbols-outline.nvim"] = {
@@ -69,6 +89,14 @@ return {
     after = "nvim-dap",
     config = function()
       require("custom.plugins.debug").setup_ui()
+    end,
+  },
+
+  -- Codicons
+
+  ["mortepau/codicons.nvim"] = {
+    config = function()
+      require("codicons").setup()
     end,
   },
 }
