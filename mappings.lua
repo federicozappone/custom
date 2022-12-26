@@ -3,18 +3,19 @@ local M = {}
 M.custom = {
 
   n = {
-     ["<C-A>"] = {"gg0VG$", "Select all"},
-     ["<Enter>"] = {"o<ESC>", "New line below"},
-     ["<S-Enter>"] = {"O<ESC>", "New line above"},
+    ["<C-A>"] = { "gg0VG$", "Select all" },
+    ["<Enter>"] = { "o<ESC>", "New line below" },
+    ["<S-Enter>"] = { "O<ESC>", "New line above" },
+    ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
   },
 
   i = {
-     ["<C-A>"] = {"gg0VG$", "Select all"}
+    ["<C-A>"] = { "gg0VG$", "Select all" },
   },
 }
 
 M.debug = {
-  n  = {
+  n = {
     ["<leader>dt"] = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
     ["<leader>db"] = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
     ["<leader>dc"] = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
@@ -29,8 +30,7 @@ M.debug = {
     ["<leader>ds"] = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
     ["<leader>dq"] = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
     ["<leader>dU"] = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
-
-  }
+  },
 }
 
 return M
