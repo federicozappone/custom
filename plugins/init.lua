@@ -21,6 +21,9 @@ return {
         "clangd",
         "clang-format",
 
+        -- "debug"
+        "codelldb",
+
         -- python
         "pyright",
         "black",
@@ -33,5 +36,41 @@ return {
       config = function()
          require "custom.plugins.null-ls"
       end,
-  }
+  },
+
+
+  -- LSP stuff
+
+  ["simrat39/symbols-outline.nvim"] = {
+		after = "nvim-lspconfig",
+		config = function()
+			require("symbols-outline").setup()
+		end,
+	},
+
+	["folke/trouble.nvim"] = {
+		after = "nvim-lspconfig",
+	},
+
+	["Pocco81/AutoSave.nvim"] = {
+		config = function()
+			require("auto-save").setup()
+		end,
+	},
+
+  -- DAP
+
+  ["mfussenegger/nvim-dap"] = {
+		config = function()
+			require("custom.plugins.debug").setup()
+		end,
+	},
+
+	["rcarriga/nvim-dap-ui"] = {
+		after = "nvim-dap",
+		config = function()
+			require("custom.plugins.debug").setup_ui()
+		end,
+	},
+
 }
