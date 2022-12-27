@@ -10,6 +10,10 @@ return {
     disable = false,
   },
 
+  ["goolord/alpha-nvim"] = {
+    disable = false,
+  },
+
   ["williamboman/mason.nvim"] = {
     override_options = {
       ensure_installed = {
