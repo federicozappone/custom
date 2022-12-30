@@ -29,7 +29,7 @@ return {
         "codelldb",
 
         -- python
-        "pyright",
+        "python-lsp-server",
         "black",
       },
     },
