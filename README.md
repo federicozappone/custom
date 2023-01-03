@@ -5,7 +5,7 @@
 Install build prerequisites
 
 ```
-sudo apt-get install ninja-build gettext libtool libtool-bin \
+sudo apt install ninja-build gettext libtool libtool-bin \
 autoconf automake cmake g++ pkg-config unzip curl doxygen \
 uncrustify clang-format git
 ```
