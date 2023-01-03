@@ -1,7 +1,6 @@
 local M = {}
 
 M.custom = {
-
   n = {
     ["<C-A>"] = { "gg0VG$", "Select all" },
     ["<Enter>"] = { "o<ESC>", "New line below" },
@@ -31,6 +30,14 @@ M.debug = {
     ["<leader>dq"] = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
     ["<leader>dU"] = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
   },
+}
+
+M.persistence = {
+  n = {
+    ["<leader>qs"] = { "<cmd>lua require'persistence'.load()<cr>", "Restore the session for the current directory" },
+    ["<leader>ql"] = { "<cmd>lua require'persistence'.load({ last = true })<cr>", "Restore the last session" },
+    ["<leader>qd"] = { "<cmd>lua require'persistence'.stop()<cr>", "Stop persistence" },
+  }
 }
 
 return M

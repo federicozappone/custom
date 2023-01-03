@@ -31,6 +31,15 @@ return {
         -- python
         "python-lsp-server",
         "black",
+
+        -- latex
+        "ltex-ls",
+
+        -- markdown
+        "marksman",
+
+        -- bash
+        "bash-language-server",
       },
     },
   },
@@ -44,6 +53,14 @@ return {
 
   ["ggandor/lightspeed.nvim"] = {
     event = "BufRead",
+  },
+
+  ["folke/persistence.nvim"] = {
+    event = "BufReadPre",
+    module = "persistence",
+    config = function()
+      require("persistence").setup()
+    end,
   },
 
   ["tpope/vim-repeat"] = {},
@@ -93,14 +110,6 @@ return {
     after = "nvim-dap",
     config = function()
       require("custom.plugins.debug").setup_ui()
-    end,
-  },
-
-  -- Codicons
-
-  ["mortepau/codicons.nvim"] = {
-    config = function()
-      require("codicons").setup()
     end,
   },
 }
