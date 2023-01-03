@@ -33,7 +33,7 @@ sudo make install
 Install the icons fonts
 
 ```
-sudo cp fonts/* /usr/local/are/fonts
+sudo cp fonts/* /usr/local/share/fonts
 sudo fc-cache -fv
 ```
 
