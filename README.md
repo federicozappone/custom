@@ -50,8 +50,8 @@ sudo fc-cache -fv
 ## NvChad and custom setups
 
 ```
-git clone https://github.com/NvChad/NvChad $HOME/.config/nvim
-git clone https://github.com/federicozappone/custom $HOME/.config/nvim/lua/custom
+git clone https://github.com/NvChad/NvChad.git $HOME/.config/nvim
+git clone https://github.com/federicozappone/custom.git $HOME/.config/nvim/lua/custom
 ```
 
 ## First launch
