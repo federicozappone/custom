@@ -44,6 +44,13 @@ return {
     },
   },
 
+  ["danymat/neogen"] = {
+    config = function()
+      require("neogen").setup {}
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+  },
+
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
