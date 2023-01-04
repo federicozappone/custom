@@ -6,17 +6,22 @@ M.custom = {
     ["<Enter>"] = { "o<ESC>", "New line below" },
     ["<S-Enter>"] = { "O<ESC>", "New line above" },
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
-    ["<C-right>"] = { '<c-w>>', "Change window size" },
-    ["<C-left>"] = { '<c-w><', "Change window size" },
-    ["<C-up>"] = { '<c-w>+', "Change window size" },
-    ["<C-down>"] = { '<c-w>-', "Change window size" },
+    ["<C-right>"] = { "<c-w>>", "Change window size" },
+    ["<C-left>"] = { "<c-w><", "Change window size" },
+    ["<C-up>"] = { "<c-w>+", "Change window size" },
+    ["<C-down>"] = { "<c-w>-", "Change window size" },
+    ["H"] = { "^", "Move to head of line" },
+    ["L"] = { "$", "Move to end of line" },
 
+    ["<C-h>"] = { "<C-w>h", "Window left" },
+    ["<C-l>"] = { "<C-w>l", "Window right" },
+    ["<C-j>"] = { "<C-w>j", "Window down" },
+    ["<C-k>"] = { "<C-w>k", "Window up" },
   },
 
   i = {
     ["<C-A>"] = { "gg0VG$", "Select all" },
   },
-
 }
 
 M.debug = {
@@ -43,20 +48,61 @@ M.persistence = {
     ["<leader>qs"] = { "<cmd>lua require'persistence'.load()<cr>", "Restore the session for the current directory" },
     ["<leader>ql"] = { "<cmd>lua require'persistence'.load({ last = true })<cr>", "Restore the last session" },
     ["<leader>qd"] = { "<cmd>lua require'persistence'.stop()<cr>", "Stop persistence" },
-  }
+  },
 }
 
 M.preview = {
   n = {
     ["<leader>pd"] = { "<cmd>lua require'goto-preview'.goto_preview_definition()<cr>", "Preview definition" },
     ["<leader>pc"] = { "<cmd>lua require'goto-preview'.close_all_win()<cr>", "Close all preview windows" },
-  }
+  },
 }
 
 M.outline = {
   n = {
-    ["<leader>so"] = { "<cmd>SymbolsOutline<cr>", "Toggle symbols outline"}
-  }
+    ["<leader>so"] = { "<cmd>SymbolsOutline<cr>", "Toggle symbols outline" },
+  },
+}
+
+M.trouble = {
+  n = {
+    ["<leader>xx"] = {
+      function()
+        vim.cmd "TroubleToggle"
+      end,
+      "Trouble",
+    },
+    ["<leader>xw"] = {
+      function()
+        vim.cmd "Trouble workspace_diagnostics"
+      end,
+      "Trouble workspace_diagnostics",
+    },
+    ["<leader>xd"] = {
+      function()
+        vim.cmd "Trouble document_diagnostics"
+      end,
+      "Trouble document_diagnostics",
+    },
+    ["<leader>xl"] = {
+      function()
+        vim.cmd "Trouble loclist"
+      end,
+      "Trouble loclist",
+    },
+    ["<leader>xq"] = {
+      function()
+        vim.cmd "Trouble quickfix"
+      end,
+      "Trouble quickfix",
+    },
+    ["gr"] = {
+      function()
+        vim.cmd "Trouble lsp_references"
+      end,
+      "Trouble lsp_references",
+    },
+  },
 }
 
 return M
