@@ -7,7 +7,7 @@ Install build prerequisites
 ```
 sudo apt install ninja-build gettext libtool libtool-bin \
 autoconf automake cmake g++ pkg-config unzip curl doxygen \
-uncrustify clang-format git
+uncrustify git
 ```
 
 Install ripgrep for live grep in Telescope
