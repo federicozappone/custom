@@ -98,6 +98,12 @@ return {
     end,
   },
 
+  ["rmagatti/goto-preview"] = {
+    config = function()
+      require "custom.plugins.goto-preview"
+    end,
+  },
+
   -- DAP
 
   ["mfussenegger/nvim-dap"] = {
