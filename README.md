@@ -1,4 +1,4 @@
-# Neovim Configuration
+# Neovim and NvChad Configuration
 
 ## Neovim Installation
 
@@ -26,6 +26,16 @@ git checkout stable
 
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
+```
+
+Set the command `vi`, `vim` and `nvim` to run neovim
+
+```
+export NVIM_PATH=/usr/local/bin/nvim
+
+sudo update-alternatives --install /usr/bin/nvim nvim "${NVIM_PATH}" 110
+sudo update-alternatives --install /usr/bin/vi vi "${NVIM_PATH}" 110
+sudo update-alternatives --install /usr/bin/vim vim "${NVIM_PATH}" 110
 ```
 
 ## Fonts
