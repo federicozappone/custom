@@ -1,6 +1,6 @@
 local M = {}
 
-M.custom = {
+M.general = {
   n = {
     ["<C-A>"] = { "gg0VG$", "Select all" },
     ["<Enter>"] = { "o<ESC>", "New line below" },
@@ -12,7 +12,6 @@ M.custom = {
     ["<C-down>"] = { "<c-w>-", "Change window size" },
     ["H"] = { "^", "Move to head of line" },
     ["L"] = { "$", "Move to end of line" },
-
     ["<C-h>"] = { "<C-w>h", "Window left" },
     ["<C-l>"] = { "<C-w>l", "Window right" },
     ["<C-j>"] = { "<C-w>j", "Window down" },
