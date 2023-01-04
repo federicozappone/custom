@@ -47,4 +47,10 @@ M.preview = {
   }
 }
 
+M.outline = {
+  n = {
+    ["<leader>so"] = { "<cmd>SymbolsOutline<cr>", "Toggle symbols outline"}
+  }
+}
+
 return M
