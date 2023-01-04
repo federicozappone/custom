@@ -6,11 +6,17 @@ M.custom = {
     ["<Enter>"] = { "o<ESC>", "New line below" },
     ["<S-Enter>"] = { "O<ESC>", "New line above" },
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
+    ["<C-right>"] = { '<c-w>>', "Change window size" },
+    ["<C-left>"] = { '<c-w><', "Change window size" },
+    ["<C-up>"] = { '<c-w>+', "Change window size" },
+    ["<C-down>"] = { '<c-w>-', "Change window size" },
+
   },
 
   i = {
     ["<C-A>"] = { "gg0VG$", "Select all" },
   },
+
 }
 
 M.debug = {
