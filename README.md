@@ -40,7 +40,7 @@ sudo update-alternatives --install /usr/bin/vim vim "${NVIM_PATH}" 110
 
 ## Fonts
 
-Install the icons fonts
+Install the nerd fonts patched with codicons
 
 ```
 sudo cp fonts/* /usr/local/share/fonts
