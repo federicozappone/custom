@@ -24,6 +24,8 @@ lspconfig["clangd"].setup {
     "--all-scopes-completion",
     "--completion-style=bundled",
   },
+
+  single_file_support = true,
 }
 
 lspconfig["pylsp"].setup {
