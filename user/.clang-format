@@ -6,6 +6,7 @@ Language: Cpp
 
 DerivePointerAlignment: false
 PointerAlignment: Left 
+AccessModifierOffset: -2
 
 ColumnLimit: 0
 
