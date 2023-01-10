@@ -19,6 +19,8 @@ M.general = {
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
     ["<leader>ng"] = {"<cmd>lua require'neogen'.generate()<cr>", "Generate documentation"},
+    ["gg"] = { "gg0", "Move to the beginning of the buffer"},
+    ["G"] = { "G$", "Move to the end of the buffer"},
   },
 
   v = {
