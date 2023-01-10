@@ -45,6 +45,8 @@ return {
     disable = false,
   },
 
+  ["gpanders/editorconfig.nvim"] = {},
+
   ["williamboman/mason.nvim"] = {
     override_options = {
       ensure_installed = {

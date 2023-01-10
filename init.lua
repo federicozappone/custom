@@ -1,7 +1,8 @@
 local opt = vim.opt
 
-opt.scrolloff=8
-opt.sidescrolloff=8
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+opt.exrc = true
 
 -- hilight yank
 vim.api.nvim_exec([[
