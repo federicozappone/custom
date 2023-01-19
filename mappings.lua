@@ -58,7 +58,7 @@ M.persistence = {
   },
 }
 
-M.preview = {
+M.preview ={
   n = {
     ["<leader>pd"] = { "<cmd>lua require'goto-preview'.goto_preview_definition()<cr>", "Preview definition" },
     ["<leader>pc"] = { "<cmd>lua require'goto-preview'.close_all_win()<cr>", "Close all preview windows" },
