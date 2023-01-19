@@ -18,9 +18,9 @@ M.general = {
     ["<C-k>"] = { "<C-w>k", "Window up" },
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
-    ["<leader>ng"] = {"<cmd>lua require'neogen'.generate()<cr>", "Generate documentation"},
-    ["gg"] = { "gg0", "Move to the beginning of the buffer"},
-    ["G"] = { "G$", "Move to the end of the buffer"},
+    ["<leader>ng"] = { "<cmd>lua require'neogen'.generate()<cr>", "Generate documentation" },
+    ["gg"] = { "gg0", "Move to the beginning of the buffer" },
+    ["G"] = { "G$", "Move to the end of the buffer" },
   },
 
   v = {
@@ -28,6 +28,13 @@ M.general = {
     ["L"] = { "$", "Move to end of line" },
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
+  },
+
+  i = {
+    ["jk"] = { "<ESC>", "Escape insert mode", opts = { nowait = true } },
+    ["jj"] = { "<ESC>", "Escape insert mode", opts = { nowait = true } },
+    ["<C-a>"] = { "<ESC>^i", "Beginning of the line" },
+    ["<C-e>"] = { "<End>", "End of line" },
   },
 }
 
@@ -58,7 +65,7 @@ M.persistence = {
   },
 }
 
-M.preview ={
+M.preview = {
   n = {
     ["<leader>pd"] = { "<cmd>lua require'goto-preview'.goto_preview_definition()<cr>", "Preview definition" },
     ["<leader>pc"] = { "<cmd>lua require'goto-preview'.close_all_win()<cr>", "Close all preview windows" },
@@ -110,6 +117,24 @@ M.trouble = {
         vim.cmd "Trouble lsp_references"
       end,
       "Trouble lsp_references",
+    },
+  },
+}
+
+M.lspconfig = {
+  n = {
+    ["gh"] = {
+      function()
+        vim.lsp.buf.hover()
+      end,
+      "LSP hover",
+    },
+
+    ["<leader>rn"] = {
+      function()
+        require("nvchad_ui.renamer").open()
+      end,
+      "LSP rename",
     },
   },
 }

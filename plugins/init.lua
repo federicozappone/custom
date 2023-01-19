@@ -95,6 +95,13 @@ return {
     event = "BufRead",
   },
 
+  ["max397574/better-escape.nvim"] = {
+    event = "InsertEnter",
+    config = function()
+      require("better_escape").setup()
+    end,
+  },
+
   ["folke/persistence.nvim"] = {
     event = "BufReadPre",
     module = "persistence",
