@@ -6,7 +6,7 @@ return {
     end,
   },
 
-  ["kyazdani42/nvim-tree.lua"] = {
+  ["nvim-tree/nvim-tree.lua"] = {
     override_options = {
       git = {
         enable = true,
