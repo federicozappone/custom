@@ -129,13 +129,6 @@ M.lspconfig = {
       end,
       "LSP hover",
     },
-
-    ["<leader>rn"] = {
-      function()
-        require("nvchad_ui.renamer").open()
-      end,
-      "LSP rename",
-    },
   },
 }
 
