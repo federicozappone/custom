@@ -6,6 +6,14 @@ return {
     end,
   },
 
+  ["hrsh7th/nvim-cmp"] = {
+    after = "friendly-snippets",
+    config = function()
+      require "plugins.configs.cmp"
+      require "custom.plugins.cmp"
+    end,
+  },
+
   ["nvim-tree/nvim-tree.lua"] = {
     override_options = {
       git = {
@@ -64,15 +72,6 @@ return {
         -- python
         "python-lsp-server",
         "black",
-
-        -- latex
-        "ltex-ls",
-
-        -- markdown
-        "marksman",
-
-        -- bash
-        "bash-language-server",
       },
     },
   },

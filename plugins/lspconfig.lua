@@ -2,7 +2,12 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
+local present, lspconfig = pcall(require, "lspconfig")
+
+if not present then
+  return
+end
+
 local servers = { "clangd", "pylsp", "ltex", "marksman", "bashls" }
 
 for _, lsp in ipairs(servers) do
