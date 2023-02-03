@@ -23,6 +23,7 @@ lspconfig["clangd"].setup {
 
   cmd = {
     "clangd",
+    "--clang-tidy",
     "--header-insertion-decorators",
     "--offset-encoding=utf-16",
     "--header-insertion=never",
