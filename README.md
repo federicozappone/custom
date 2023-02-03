@@ -7,7 +7,7 @@ Install build prerequisites
 ```
 sudo apt install ninja-build gettext libtool libtool-bin \
 autoconf automake cmake g++ pkg-config unzip curl doxygen \
-uncrustify git
+uncrustify git xclip
 ```
 
 Install ripgrep for live grep in Telescope
@@ -21,8 +21,6 @@ Build neovim stable from source
 ```
 git clone https://github.com/neovim/neovim.git
 cd neovim
-
-make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 ```
 
