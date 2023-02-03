@@ -7,13 +7,7 @@ Install build prerequisites
 ```
 sudo apt install ninja-build gettext libtool libtool-bin \
 autoconf automake cmake g++ pkg-config unzip curl doxygen \
-uncrustify git xclip
-```
-
-Install ripgrep for live grep in Telescope
-
-```
-sudo apt install ripgrep
+uncrustify git xclip ripgrep
 ```
 
 Build neovim stable from source
