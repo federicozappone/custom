@@ -6,8 +6,8 @@ Install build prerequisites
 
 ```
 sudo apt install ninja-build gettext libtool libtool-bin \
-autoconf automake cmake g++ pkg-config unzip curl doxygen \
-uncrustify git xclip ripgrep libstdc++-12-dev
+  autoconf automake cmake g++ pkg-config unzip curl doxygen \
+  uncrustify git xclip ripgrep libstdc++-12-dev
 ```
 
 Build neovim stable from source
