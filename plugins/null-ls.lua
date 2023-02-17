@@ -16,6 +16,9 @@ local sources = {
 
   -- python
   b.formatting.black,
+
+  -- xml
+  b.formatting.xmlformat,
 }
 
 null_ls.setup {

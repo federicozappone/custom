@@ -72,6 +72,9 @@ return {
         -- python
         "python-lsp-server",
         "black",
+
+        -- xml
+        "xmlformatter",
       },
     },
   },

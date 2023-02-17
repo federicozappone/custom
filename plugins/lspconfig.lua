@@ -59,6 +59,7 @@ lspconfig["pylsp"].setup {
             "E126",
             "E301",
             "E225",
+            "W504",
           },
           count = false,
           statistics = true,
