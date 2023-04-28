@@ -2,7 +2,6 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
-
   -- Override plugin definition options
 
   {
@@ -20,15 +19,6 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
-  },
-
-  {
-    "hrsh7th/nvim-cmp",
-    after = "friendly-snippets",
-    config = function()
-      require "plugins.configs.cmp"
-      require "custom.configs.cmp"
-    end,
   },
 
   -- override plugin configs
@@ -60,7 +50,8 @@ local plugins = {
     event = "BufRead",
   },
 
-  ["max397574/better-escape.nvim"] = {
+  {
+    "max397574/better-escape.nvim",
     lazy = false,
     event = "InsertEnter",
     config = function()
@@ -117,6 +108,11 @@ local plugins = {
   },
 
   {
+    event = "BufRead",
+    "numToStr/Comment.nvim",
+  },
+
+  {
     "kylechui/nvim-surround",
     config = function()
       require("nvim-surround").setup()
@@ -124,14 +120,16 @@ local plugins = {
   },
 
   {
+    lazy = false,
     "gpanders/editorconfig.nvim",
   },
 
   {
+    event = "BufRead",
     "chrisgrieser/nvim-spider",
   },
 
-    -- DAP
+  -- DAP
 
   {
     "mfussenegger/nvim-dap",
