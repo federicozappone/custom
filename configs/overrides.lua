@@ -49,6 +49,16 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+    "cmake-language-server",
+
+    -- bash
+    "bash-language-server",
+
+    -- markdown
+    "marksman",
+
+    -- rust
+    "rust-analyzer",
   },
 }
 

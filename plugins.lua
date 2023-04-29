@@ -101,9 +101,11 @@ local plugins = {
     config = function()
       require("goto-preview").setup()
     end,
+    after = "nvim-lspconfig",
   },
 
   {
+    lazy = false,
     "tpope/vim-repeat",
   },
 
@@ -113,6 +115,7 @@ local plugins = {
   },
 
   {
+    event = "BufRead",
     "kylechui/nvim-surround",
     config = function()
       require("nvim-surround").setup()
@@ -143,6 +146,30 @@ local plugins = {
     after = "nvim-dap",
     config = function()
       require("custom.configs.debug").setup_ui()
+    end,
+  },
+
+  -- Snippets
+
+  {
+    event = "BufRead",
+    "madskjeldgaard/cheeky-snippets.nvim",
+    requires = {
+      "L3MON4D3/LuaSnip",
+    },
+    config = function()
+      local cheeky = require "cheeky"
+      cheeky.setup {
+        langs = {
+          all = true,
+          lua = true,
+          cpp = true,
+          asm = true,
+          cmake = true,
+          markdown = true,
+          supercollider = true,
+        },
+      }
     end,
   },
 }
