@@ -9,6 +9,7 @@ PointerAlignment: Left
 AccessModifierOffset: -2
 
 ColumnLimit: 0
+SortIncludes: false
 
 BraceWrapping:
   AfterClass:      true
