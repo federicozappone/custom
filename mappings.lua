@@ -133,6 +133,12 @@ M.lspconfig = {
       end,
       "LSP hover",
     },
+    ["<leader>qf"] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "LSP quickfix",
+    },
   },
 }
 

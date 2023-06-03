@@ -4,14 +4,14 @@ local overrides = require "custom.configs.overrides"
 local plugins = {
   -- Override plugin definition options
 
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    config = function()
-      require "plugins.configs.cmp"
-      require "custom.configs.cmp"
-    end,
-  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require "plugins.configs.cmp"
+  --     require "custom.configs.cmp"
+  --   end,
+  -- },
 
   {
     "neovim/nvim-lspconfig",
