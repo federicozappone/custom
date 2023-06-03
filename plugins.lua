@@ -4,15 +4,6 @@ local overrides = require "custom.configs.overrides"
 local plugins = {
   -- Override plugin definition options
 
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     require "plugins.configs.cmp"
-  --     require "custom.configs.cmp"
-  --   end,
-  -- },
-
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -22,6 +13,17 @@ local plugins = {
         config = function()
           require "custom.configs.null-ls"
         end,
+
+      },
+      {
+        "SmiteshP/nvim-navbuddy",
+        config = function()
+          require "custom.configs.navbuddy"
+        end,
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim",
+        },
       },
     },
     config = function()
@@ -183,9 +185,9 @@ local plugins = {
   },
 
   {
-     "NvChad/nvim-colorizer.lua",
-     enabled = false,
-   }
+    "NvChad/nvim-colorizer.lua",
+    enabled = false,
+  },
 }
 
 return plugins
