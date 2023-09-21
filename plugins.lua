@@ -34,6 +34,11 @@ local plugins = {
 
   -- override plugin configs
   {
+    "hrsh7th/nvim-cmp",
+    opts = overrides.cmp,
+  },
+
+  {
     "williamboman/mason.nvim",
     opts = overrides.mason,
   },

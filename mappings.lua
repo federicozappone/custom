@@ -84,7 +84,7 @@ M.outline = {
   },
 }
 
-M.outline = {
+M.navbuddy = {
   n = {
     ["<leader>nb"] = { "<cmd>Navbuddy<cr>", "Toggle Navbuddy" },
   },
