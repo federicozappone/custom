@@ -67,6 +67,12 @@ local plugins = {
   },
 
   {
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+    event = "BufRead",
+  },
+
+  {
     "max397574/better-escape.nvim",
     lazy = false,
     event = "InsertEnter",
