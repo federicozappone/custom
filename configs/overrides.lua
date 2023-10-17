@@ -1,6 +1,6 @@
 local M = {}
 
-local cmp = require("cmp")
+local cmp = require "cmp"
 
 M.cmp = {
   mapping = {
@@ -8,6 +8,12 @@ M.cmp = {
     ["<Down>"] = cmp.mapping.select_next_item(),
   },
 }
+
+-- M.luasnip = {
+--   config = function()
+--     require("luasnip.loaders.from_vscode").lazy_load { paths = {"~/.config/nvim/lua/custom/snippets"} }
+--   end,
+-- }
 
 M.treesitter = {
   ensure_installed = {
@@ -74,7 +80,6 @@ M.mason = {
 -- git support in nvimtree
 M.nvimtree = {
   view = {
-    hide_root_folder = false,
     adaptive_size = true,
   },
   git = {

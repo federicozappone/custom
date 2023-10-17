@@ -13,7 +13,6 @@ local plugins = {
         config = function()
           require "custom.configs.null-ls"
         end,
-
       },
       {
         "SmiteshP/nvim-navbuddy",
@@ -37,6 +36,11 @@ local plugins = {
     "hrsh7th/nvim-cmp",
     opts = overrides.cmp,
   },
+
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   opts = overrides.luasnip,
+  -- },
 
   {
     "williamboman/mason.nvim",
@@ -68,7 +72,9 @@ local plugins = {
 
   {
     "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
     event = "BufRead",
   },
 
@@ -186,10 +192,10 @@ local plugins = {
           all = true,
           lua = true,
           cpp = true,
-          asm = true,
+          asm = false,
           cmake = true,
           markdown = true,
-          supercollider = true,
+          supercollider = false,
         },
       }
     end,

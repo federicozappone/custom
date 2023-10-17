@@ -1,0 +1,40 @@
+{
+  "ROS2 launch-template": {
+    "scope": "python",
+    "prefix": "launch",
+    "description": "ROS2 launch template",
+    "body": [
+      "from launch import LaunchDescription",
+      "from launch_ros.actions import Node\n\n",
+      "def generate_launch_description():",
+      "\treturn LaunchDescription([",
+      "\t\t${0}",
+      "\t])"
+    ]
+  },
+  "ROS2 launch-node": {
+    "scope": "python",
+    "prefix": "Node",
+    "description": "ROS2 launch node template",
+    "body": [
+      "Node(",
+      "\tpackage='${1:package_name}',",
+      "\tnamespace='${2}',",
+      "\texecutable='${3}',",
+      "\tname='${4}',",
+      "),",
+      "${0}"
+    ]
+  },
+  "ROS2 launch-node-remap": {
+    "scope": "python",
+    "prefix": "remappings",
+    "description": "ROS2 launch node remapping template",
+    "body": [
+      "remappings=[",
+      "\t('${1:from_topic}', '${2:to_topic}'),",
+      "],",
+      "${0}"
+    ]
+  }
+}

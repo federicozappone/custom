@@ -1,0 +1,19 @@
+{
+  "name": "custom-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": ["cpp"],
+        "path": "./cpp.json"
+      },
+      {
+        "language": ["xml"],
+        "path": "./urdf.json"
+      },
+      {
+        "language": ["python"],
+        "path": "./ros2_launch_py.json"
+      }
+    ]
+  }
+}
