@@ -31,16 +31,20 @@ local plugins = {
     end, -- Override to setup mason-lspconfig
   },
 
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = overrides.telescope,
+  },
+
   -- override plugin configs
   {
     "hrsh7th/nvim-cmp",
     opts = overrides.cmp,
   },
 
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   opts = overrides.luasnip,
-  -- },
+  {
+    "benfowler/telescope-luasnip.nvim",
+  },
 
   {
     "williamboman/mason.nvim",
@@ -204,6 +208,13 @@ local plugins = {
   {
     "NvChad/nvim-colorizer.lua",
     enabled = false,
+  },
+
+  {
+    event = "BufRead",
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = true,
   },
 }
 

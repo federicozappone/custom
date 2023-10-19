@@ -6,6 +6,14 @@
         "language": ["cpp"],
         "path": "./cpp.json"
       },
+        {
+        "language": ["cpp"],
+        "path": "./cppdoc.json"
+      },
+      {
+        "language": ["cmake"],
+        "path": "./cmake.json"
+      },
       {
         "language": ["xml"],
         "path": "./urdf.json"

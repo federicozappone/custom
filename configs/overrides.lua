@@ -9,11 +9,11 @@ M.cmp = {
   },
 }
 
--- M.luasnip = {
---   config = function()
---     require("luasnip.loaders.from_vscode").lazy_load { paths = {"~/.config/nvim/lua/custom/snippets"} }
---   end,
--- }
+M.telescope = {
+  config = function()
+    require('telescope').load_extension('luasnip')
+  end,
+}
 
 M.treesitter = {
   ensure_installed = {
