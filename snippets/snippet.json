@@ -1,0 +1,16 @@
+{
+  "Snippet Template": {
+    "prefix": "snip",
+    "body": [
+      "  \"Snippet Template\": {",
+      "    \"prefix\": "snip",",
+      "    \"body\": [",
+      "      \"\",",
+      "      \"\"",
+      "    ],",
+      "    \"description\": \"Snippet Template\"",
+      "  },"
+    ],
+    "description": "Standard starter template for a tiny C++ program"
+  }
+}

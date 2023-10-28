@@ -21,6 +21,18 @@
       {
         "language": ["python"],
         "path": "./ros2_launch_py.json"
+      },
+      {
+        "language": ["cpp"],
+        "path": "./ros2_cpp.json"
+      },
+      {
+        "language": ["yaml", "text"],
+        "path": "./clang.json"
+      },
+      {
+        "language": ["json", "yaml", "text"],
+        "path": "./snippet.json"
       }
     ]
   }
