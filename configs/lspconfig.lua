@@ -25,7 +25,6 @@ lspconfig["clangd"].setup {
     -- "--header-insertion=never",
     "--all-scopes-completion",
     "--completion-style=bundled",
-    "--suggest-missing-includes",
   },
 
   single_file_support = true,
