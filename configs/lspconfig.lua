@@ -22,9 +22,10 @@ lspconfig["clangd"].setup {
     "--clang-tidy",
     "--header-insertion-decorators",
     "--offset-encoding=utf-16",
-    "--header-insertion=never",
+    -- "--header-insertion=never",
     "--all-scopes-completion",
     "--completion-style=bundled",
+    "--suggest-missing-includes",
   },
 
   single_file_support = true,

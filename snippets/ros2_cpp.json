@@ -277,7 +277,100 @@
     "description": "Simple Frame Broadcaster"
   },
 
-    "Image Subscriber": {
+  "Frame Listener": {
+    "prefix": "frame_listener",
+    "body": [
+      "#include <chrono>",
+      "#include <functional>",
+      "#include <memory>",
+      "#include <string>",
+      "",
+      "#include \"rclcpp/rclcpp.hpp\"",
+      "",
+      "#include \"geometry_msgs/msg/transform_stamped.hpp\"",
+      "#include \"geometry_msgs/msg/twist.hpp\"",
+      "",
+      "#include \"tf2/exceptions.h\"",
+      "#include \"tf2_ros/transform_listener.h\"",
+      "#include \"tf2_ros/buffer.h\"",
+      "",
+      "#include \"eigen3/Eigen/Dense\"",
+      "",
+      "using namespace std::chrono_literals;",
+      "",
+      "class FrameListenerNode : public rclcpp::Node",
+      "{",
+      "public:",
+      "  FrameListenerNode() : Node(\"frame_listener_node\")",
+      "  {",
+      "    tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());",
+      "    tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);",
+      "",
+      "    timer_ = this->create_wall_timer(1s, std::bind(&FrameListenerNode::on_timer, this));",
+      "  }",
+      "",
+      "private:",
+      "  std::shared_ptr<tf2_ros::TransformListener> tf_listener_;",
+      "  std::unique_ptr<tf2_ros::Buffer> tf_buffer_;",
+      "  rclcpp::TimerBase::SharedPtr timer_;",
+      "",
+      "  void on_timer()",
+      "  {",
+      "    Eigen::Matrix4d htrans = resolve_tf(\"camera_link\", \"base_link\", tf2::TimePointZero);",
+      "    RCLCPP_INFO_STREAM(get_logger(), \"HTrans:\\n\" << htrans);",
+      "  }",
+      "",
+      "  Eigen::Matrix4d resolve_tf(const std::string& target, const std::string& source,",
+      "                             const tf2::TimePoint time)",
+      "  {",
+      "    geometry_msgs::msg::TransformStamped tf_stamped;",
+      "",
+      "    try",
+      "    {",
+      "      tf_stamped = tf_buffer_->lookupTransform(target, source, time);",
+      "",
+      "      RCLCPP_INFO(get_logger(), \"Received transform: x=%f, y=%f, z=%f\",",
+      "                  tf_stamped.transform.translation.x, tf_stamped.transform.translation.y,",
+      "                  tf_stamped.transform.translation.z);",
+      "    }",
+      "    catch (tf2::TransformException& e)",
+      "    {",
+      "      RCLCPP_ERROR(get_logger(), \"Transform lookup failed: %s\", e.what());",
+      "      // throw e;",
+      "    }",
+      "",
+      "    Eigen::Matrix4d T = Eigen::Matrix4d::Identity();",
+      "",
+      "    T.block(0, 3, 3, 1) << tf_stamped.transform.translation.x, tf_stamped.transform.translation.y,",
+      "        tf_stamped.transform.translation.z;",
+      "",
+      "    Eigen::Quaterniond q(tf_stamped.transform.rotation.w, tf_stamped.transform.rotation.x,",
+      "                         tf_stamped.transform.rotation.y, tf_stamped.transform.rotation.z);",
+      "    T.block(0, 0, 3, 3) = q.toRotationMatrix();",
+      "",
+      "    return T;",
+      "  }",
+      "};",
+      "",
+      "int main(int argc, char* argv[])",
+      "{",
+      "  rclcpp::init(argc, argv);",
+      "  rclcpp::spin(std::make_shared<FrameListenerNode>());",
+      "  rclcpp::shutdown();",
+      "  return 0;",
+      "}",
+      "",
+      "/**",
+      " * For Eigen3",
+      "",
+      "find_package(Eigen3 REQUIRED)",
+      "",
+      "*/"
+    ],
+    "description": "Simple Frame Broadcaster"
+  },
+
+  "Image Subscriber": {
     "prefix": "image_subscriber",
     "body": [
       "#include \"rclcpp/rclcpp.hpp\"",
@@ -290,9 +383,22 @@
       "public:",
       "  ImageDisplayNode() : Node(\"image_display_node\")",
       "  {",
+      "    auto qos = rclcpp::QoS(rclcpp::QoSInitialization(",
+      "        // The history policy determines how messages are saved until taken by",
+      "        // the reader.",
+      "        // KEEP_ALL saves all messages until they are taken.",
+      "        // KEEP_LAST enforces a limit on the number of messages that are saved,",
+      "        // specified by the \"depth\" parameter.",
+      "        history_policy_,",
+      "        // Depth represents how many messages to store in history when the",
+      "        // history policy is KEEP_LAST.",
+      "        depth_));",
+      "",
+      "    qos.reliability(reliability_policy_);",
+      "",
       "    // Subscribe to the image topic",
       "    image_subscription_ = this->create_subscription<sensor_msgs::msg::Image>(",
-      "        \"/image_topic\", 10, [this](const sensor_msgs::msg::Image::SharedPtr msg) {",
+      "        \"/camera/image_raw\", qos, [this](const sensor_msgs::msg::Image::SharedPtr msg) {",
       "          // Convert the ROS image message to an OpenCV image",
       "          cv_bridge::CvImagePtr cv_image_ptr;",
       "          try",
@@ -315,6 +421,10 @@
       "",
       "private:",
       "  rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr image_subscription_;",
+      "",
+      "  size_t depth_ = rmw_qos_profile_default.depth;",
+      "  rmw_qos_reliability_policy_t reliability_policy_ = rmw_qos_profile_default.reliability;",
+      "  rmw_qos_history_policy_t history_policy_ = rmw_qos_profile_default.history;",
       "};",
       "",
       "int main(int argc, char** argv)",
@@ -348,6 +458,75 @@
       "*/"
     ],
     "description": "Simple Image Subscriber"
+  },
+
+  "Resolve TF": {
+    "prefix": "resolve_tf",
+    "body": [
+      "  Eigen::Matrix4d resolve_tf(const std::string& target, const std::string& source,",
+      "                             const tf2::TimePoint time = tf2::TimePointZero)",
+      "  {",
+      "    geometry_msgs::msg::TransformStamped tf_stamped;",
+      "",
+      "    try",
+      "    {",
+      "      tf_stamped = tf_buffer_->lookupTransform(target, source, time);",
+      "",
+      "      RCLCPP_INFO(get_logger(), \"Received transform: x=%f, y=%f, z=%f\",",
+      "                  tf_stamped.transform.translation.x, tf_stamped.transform.translation.y,",
+      "                  tf_stamped.transform.translation.z);",
+      "    }",
+      "    catch (tf2::TransformException& e)",
+      "    {",
+      "      RCLCPP_ERROR(get_logger(), \"Transform lookup failed: %s\", e.what());",
+      "      // throw e;",
+      "    }",
+      "",
+      "    Eigen::Matrix4d T = Eigen::Matrix4d::Identity();",
+      "",
+      "    T.block(0, 3, 3, 1) << tf_stamped.transform.translation.x, tf_stamped.transform.translation.y,",
+      "        tf_stamped.transform.translation.z;",
+      "",
+      "    Eigen::Quaterniond q(tf_stamped.transform.rotation.w, tf_stamped.transform.rotation.x,",
+      "                         tf_stamped.transform.rotation.y, tf_stamped.transform.rotation.z);",
+      "    T.block(0, 0, 3, 3) = q.toRotationMatrix();",
+      "",
+      "    return T;",
+      "  }"
+    ],
+    "description": "Resolve ROS2 TF Utility"
+  },
+
+  "Log Info": {
+    "prefix": "log_info",
+    "body": [
+      "RCLCPP_INFO(get_logger(), \"Message: %s\", value);"
+    ],
+    "description": "ROS2 Log Info"
+  },
+
+  "Log Warning": {
+    "prefix": "log_warning",
+    "body": [
+      "RCLCPP_WARN(get_logger(), \"Message: %s\", value);"
+    ],
+    "description": "ROS2 Log Warning"
+  },
+
+  "Log Error": {
+    "prefix": "log_error",
+    "body": [
+      "RCLCPP_ERROR(get_logger(), \"Message: %s\", value);"
+    ],
+    "description": "ROS2 Log Error"
+  },
+
+  "Log Stream": {
+    "prefix": "log_stream",
+    "body": [
+      "RCLCPP_INFO_STREAM(get_logger(), \"Message: \" << value);"
+    ],
+    "description": "ROS2 Log Info Stream"
   }
 
 }

@@ -27,11 +27,19 @@
         "path": "./ros2_cpp.json"
       },
       {
-        "language": ["yaml", "text"],
+        "language": ["cpp"],
+        "path": "./opencv_cpp.json"
+      },
+      {
+        "language": ["cpp"],
+        "path": "./eigen_cpp.json"
+      },
+      {
+        "language": ["yaml", "plaintext", "all", "global"],
         "path": "./clang.json"
       },
       {
-        "language": ["json", "yaml", "text"],
+        "language": ["javascript", "global", "plaintext", "all"],
         "path": "./snippet.json"
       }
     ]
