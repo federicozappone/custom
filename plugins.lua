@@ -116,6 +116,7 @@ local plugins = {
   },
 
   {
+    event = "BufRead",
     "folke/trouble.nvim",
     after = "nvim-lspconfig",
   },
@@ -152,11 +153,6 @@ local plugins = {
     config = function()
       require("nvim-surround").setup()
     end,
-  },
-
-  {
-    lazy = false,
-    "gpanders/editorconfig.nvim",
   },
 
   {
@@ -215,6 +211,32 @@ local plugins = {
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = true,
+  },
+
+  {
+    lazy = false,
+    "stevearc/overseer.nvim",
+    config = function()
+      require("overseer").setup {
+        templates = { "builtin", "user.cpp_build", "user.ros2_cmake_pkg" },
+      }
+    end,
+    opts = {},
+  },
+
+  {
+    lazy = false,
+    "ldelossa/gh.nvim",
+    dependencies = "ldelossa/litee.nvim",
+    config = function()
+      require "custom.configs.gh"
+    end,
+  },
+
+  {
+    event = "BufRead",
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
 }
 
