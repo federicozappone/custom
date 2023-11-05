@@ -39,7 +39,7 @@
         "path": "./clang.json"
       },
       {
-        "language": ["javascript", "global", "plaintext", "all"],
+        "language": ["yaml", "javascript", "global", "plaintext", "all"],
         "path": "./snippet.json"
       }
     ]

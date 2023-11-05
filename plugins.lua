@@ -43,6 +43,7 @@ local plugins = {
   },
 
   {
+    lazy = false,
     "benfowler/telescope-luasnip.nvim",
   },
 

@@ -1,8 +1,8 @@
 {
-  "KKK Template": {
-    "prefix": "kkk",
+  "Template": {
+    "prefix": "main",
     "body": [
-      "#include <AAAA>",
+      "#include <iostream>",
       "",
       "int main (int argc, char *argv[]) {",
       "\t$1",

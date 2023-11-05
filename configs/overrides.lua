@@ -1,11 +1,10 @@
 local M = {}
 
-local cmp = require "cmp"
 
 M.cmp = {
   mapping = {
-    ["<Up>"] = cmp.mapping.select_prev_item(),
-    ["<Down>"] = cmp.mapping.select_next_item(),
+    ["<Up>"] = require('cmp').mapping.select_prev_item(),
+    ["<Down>"] = require('cmp').mapping.select_next_item(),
   },
 }
 
