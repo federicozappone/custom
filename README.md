@@ -29,6 +29,14 @@ sudo update-alternatives --install /usr/bin/vi vi "${NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vim vim "${NVIM_PATH}" 110
 ```
 
+## Node (used for LSPs)
+
+```
+sudo apt remove --purge nodejs npm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+nvm install node
+```
+
 ## NvChad and custom setups
 
 ```
