@@ -29,20 +29,21 @@ sudo update-alternatives --install /usr/bin/vi vi "${NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vim vim "${NVIM_PATH}" 110
 ```
 
-## Fonts
-
-Install the nerd fonts patched with codicons
-
-```
-sudo cp fonts/* /usr/local/share/fonts
-sudo fc-cache -fv
-```
-
 ## NvChad and custom setups
 
 ```
 git clone https://github.com/NvChad/NvChad.git $HOME/.config/nvim
 git clone https://github.com/federicozappone/custom_v2.git $HOME/.config/nvim/lua/custom
+```
+
+## Fonts
+
+Install the nerd fonts patched with codicons
+
+```
+cd $HOME/.config/nvim/lua/custom
+sudo cp fonts/* /usr/local/share/fonts
+sudo fc-cache -fv
 ```
 
 ## First launch
