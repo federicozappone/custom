@@ -41,6 +41,10 @@
       {
         "language": ["yaml", "javascript", "global", "plaintext", "all"],
         "path": "./snippet.json"
+      },
+      {
+        "language": ["python"],
+        "path": "./torch.json"
       }
     ]
   }
