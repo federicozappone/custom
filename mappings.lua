@@ -22,6 +22,8 @@ M.general = {
     ["<leader>ng"] = { "<cmd>lua require'neogen'.generate()<cr>", "Generate documentation" },
     ["gg"] = { "gg0", "Move to the beginning of the buffer" },
     ["G"] = { "G$", "Move to the end of the buffer" },
+    ["<leader>fg"] = { "<cmd>Telescope git_files<cr>", "Telescope git files" },
+    ["<leader>gf"] = { "<cmd>Telescope git_files<cr>", "Telescope git files" },
   },
 
   v = {

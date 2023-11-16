@@ -239,6 +239,20 @@ local plugins = {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
+
+  {
+    lazy = false,
+    "kelly-lin/ranger.nvim",
+    config = function()
+      require("ranger-nvim").setup { replace_netrw = true }
+      vim.api.nvim_set_keymap("n", "<leader>ef", "", {
+        noremap = true,
+        callback = function()
+          require("ranger-nvim").open(true)
+        end,
+      })
+    end,
+  },
 }
 
 return plugins
