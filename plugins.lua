@@ -76,6 +76,11 @@ local plugins = {
   },
 
   {
+    event = "BufRead",
+    "Civitasv/cmake-tools.nvim",
+  },
+
+  {
     "iamcco/markdown-preview.nvim",
     run = function()
       vim.fn["mkdp#util#install"]()
@@ -91,14 +96,6 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
-
-  -- {
-  --   "folke/persistence.nvim",
-  --   event = "BufReadPre",
-  --   config = function()
-  --     require("persistence").setup()
-  --   end,
-  -- },
 
   {
     lazy = false,
