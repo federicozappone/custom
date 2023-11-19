@@ -92,12 +92,18 @@ local plugins = {
     end,
   },
 
+  -- {
+  --   "folke/persistence.nvim",
+  --   event = "BufReadPre",
+  --   config = function()
+  --     require("persistence").setup()
+  --   end,
+  -- },
+
   {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    config = function()
-      require("persistence").setup()
-    end,
+    lazy = false,
+    "olimorris/persisted.nvim",
+    config = true,
   },
 
   {
@@ -109,11 +115,15 @@ local plugins = {
   },
 
   {
-    "simrat39/symbols-outline.nvim",
-    event = "BufRead",
-    config = function()
-      require("symbols-outline").setup()
-    end,
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    keys = { -- Example mapping to toggle outline
+      { "<leader>tt", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
+    opts = {
+      -- Your setup opts here
+    },
   },
 
   {

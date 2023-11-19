@@ -64,11 +64,9 @@ M.spider = {
   },
 }
 
-M.persistence = {
+M.persisted = {
   n = {
-    ["<leader>qs"] = { "<cmd>lua require'persistence'.load()<cr>", "Restore the session for the current directory" },
-    ["<leader>ql"] = { "<cmd>lua require'persistence'.load({ last = true })<cr>", "Restore the last session" },
-    ["<leader>qd"] = { "<cmd>lua require'persistence'.stop()<cr>", "Stop persistence" },
+    ["<leader>qs"] = { "<cmd>SessionLoadLast<cr>", "Restore the session for the current directory" },
   },
 }
 
@@ -82,13 +80,26 @@ M.preview = {
 
 M.outline = {
   n = {
-    ["<leader>so"] = { "<cmd>SymbolsOutline<cr>", "Toggle symbols outline" },
+    ["<leader>so"] = { "<cmd>Outline<cr>", "Toggle Outline" },
   },
 }
 
 M.navbuddy = {
   n = {
     ["<leader>nb"] = { "<cmd>Navbuddy<cr>", "Toggle Navbuddy" },
+  },
+}
+
+M.cpp = {
+  n = {
+    ["<leader>cd"] = { "<cmd>TSCppDefineClassFunc<cr>", "Define Class Functions" },
+    ["<leader>cc"] = { "<cmd>TSCppMakeConcreteClass<cr>", "Make Concrete Class" },
+    ["<leader>cb"] = { "ViBj$o2kO", "Visual select block" },
+    ["<leader>cn"] = { "ViBjmbo2k0ma<ESC>'bo<cr>}<ESC>'aO<ESC>O{<ESC>0vt{cnamespace name <ESC>hviw", "Wrap block in namespace" },
+  },
+  v = {
+    ["<leader>cd"] = { "<cmd>TSCppDefineClassFunc<cr>", "Define Class Functions" },
+    ["<leader>cc"] = { "<cmd>TSCppMakeConcreteClass<cr>", "Make Concrete Class" },
   },
 }
 
