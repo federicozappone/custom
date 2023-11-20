@@ -1,18 +1,14 @@
 local M = {}
 
-
 M.cmp = {
   mapping = {
-    ["<Up>"] = require('cmp').mapping.select_prev_item(),
-    ["<Down>"] = require('cmp').mapping.select_next_item(),
+    ["<Up>"] = require("cmp").mapping.select_prev_item(),
+    ["<Down>"] = require("cmp").mapping.select_next_item(),
   },
 }
 
 M.telescope = {
-  config = function()
-    require("telescope").load_extension("luasnip")
-    require("telescope").load_extension("persisted")
-  end,
+  extensions_list = { "themes", "terms", "fzf", "luasnip", "persisted" },
 }
 
 M.treesitter = {
@@ -34,7 +30,7 @@ M.treesitter = {
     enable = true,
     disable = {
       "cpp",
-      "c"
+      "c",
     },
   },
 }
@@ -62,7 +58,7 @@ M.mason = {
     -- xml
     "xmlformatter",
 
-    -- c/cpp stuff
+    -- c/cpp
     "clangd",
     "clang-format",
     "cmake-language-server",
@@ -75,6 +71,9 @@ M.mason = {
 
     -- rust
     "rust-analyzer",
+
+    -- yaml
+    "yaml-language-server",
   },
 }
 

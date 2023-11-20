@@ -3,7 +3,7 @@ local M = {}
 
 M.general = {
   n = {
-    ["<C-A>"] = { "gg0VG$", "Select all" },
+    ["<C-S-A>"] = { "gg0VG$", "Select all" },
     ["<Enter>"] = { "o<ESC>", "New line below" },
     ["<S-Enter>"] = { "O<ESC>", "New line above" },
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
@@ -22,8 +22,6 @@ M.general = {
     ["<leader>ng"] = { "<cmd>lua require'neogen'.generate()<cr>", "Generate documentation" },
     ["gg"] = { "gg0", "Move to the beginning of the buffer" },
     ["G"] = { "G$", "Move to the end of the buffer" },
-    ["<leader>fg"] = { "<cmd>Telescope git_files<cr>", "Telescope git files" },
-    ["<leader>gf"] = { "<cmd>Telescope git_files<cr>", "Telescope git files" },
   },
 
   v = {
@@ -38,6 +36,14 @@ M.general = {
     ["jj"] = { "<ESC>", "Escape insert mode", opts = { nowait = true } },
     ["<C-a>"] = { "<ESC>^i", "Beginning of the line" },
     ["<C-e>"] = { "<End>", "End of line" },
+  },
+}
+
+M.telescope = {
+  n = {
+    ["<leader>fg"] = { "<cmd>Telescope git_files<cr>", "Git files" },
+    ["<leader>fq"] = { "<cmd>Telescope persisted<cr>", "Persisted" },
+    ["<leader>fs"] = { "<cmd>Telescope luasnip<cr>", "Snippets" },
   },
 }
 
@@ -95,7 +101,10 @@ M.cpp = {
     ["<leader>cd"] = { "<cmd>TSCppDefineClassFunc<cr>", "Define Class Functions" },
     ["<leader>cc"] = { "<cmd>TSCppMakeConcreteClass<cr>", "Make Concrete Class" },
     ["<leader>cb"] = { "ViBj$o2kO", "Visual select block" },
-    ["<leader>cn"] = { "ViBjmbo2k0ma<ESC>'bo<cr>}<ESC>'aO<ESC>O{<ESC>0vt{cnamespace name <ESC>hviw", "Wrap block in namespace" },
+    ["<leader>cn"] = {
+      "ViBjmbo2k0ma<ESC>'bo<cr>}<ESC>'aO<ESC>O{<ESC>0vt{cnamespace name <ESC>hviw",
+      "Wrap block in namespace",
+    },
   },
   v = {
     ["<leader>cd"] = { "<cmd>TSCppDefineClassFunc<cr>", "Define Class Functions" },

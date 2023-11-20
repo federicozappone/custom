@@ -223,17 +223,6 @@ local plugins = {
 
   {
     lazy = false,
-    "stevearc/overseer.nvim",
-    config = function()
-      require("overseer").setup {
-        templates = { "builtin", "user.cpp_build", "user.ros2_cmake_pkg" },
-      }
-    end,
-    opts = {},
-  },
-
-  {
-    lazy = false,
     "ldelossa/gh.nvim",
     dependencies = "ldelossa/litee.nvim",
     config = function()
@@ -283,6 +272,26 @@ local plugins = {
       return options
     end,
     config = true,
+  },
+
+  {
+    lazy = false,
+    "RRethy/nvim-treesitter-textsubjects",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        textsubjects = {
+          enable = true,
+          prev_selection = ",",
+          keymaps = {
+            ["."] = "textsubjects-smart",
+            [";"] = "textsubjects-container-outer",
+            ["i;"] = { "textsubjects-container-inner", desc = "Select inside containers (classes, functions, etc.)" },
+          },
+        },
+      }
+    end,
   },
 }
 

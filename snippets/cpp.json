@@ -1,15 +1,53 @@
 {
-  "Template": {
-    "prefix": "main",
+  "header guard": {
+    "prefix": "header_guard",
     "body": [
-      "#include <iostream>",
+      "#ifndef ${1:DEBUG}_H",
+      "#define $1_H",
+      "$0",
+      "#endif  // $1_H"],
+    "description": "Header guard"
+  },
+
+  "header": {
+    "prefix": "header",
+    "body": [
+      "#ifndef ${1:DEBUG}_H",
+      "#define $1_H",
       "",
-      "int main (int argc, char *argv[]) {",
-      "\t$1",
+      "namespace ${2:name} {",
       "",
-      "\treturn 0;",
-      "}"
+      "class ${3:MyClass}",
+      "{",
+      "public:",
+      "\t$3() = default;",
+      "\t$3($3&&) = default;",
+      "\t$3(const $3&) = default;",
+      "\t$3& operator=($3&&) = default;",
+      "\t$3& operator=(const $3&) = default;",
+      "\t~$3() = default;",
+      "",
+      "private:",
+      "};",
+      "",
+      "}  // namespace $2",
+      "",
+      "#endif  // $1_H"
     ],
-    "description": "Standard starter template for a tiny C++ program"
+    "description": "Code snippet for header with a class"
+  },
+
+  "format off": {
+    "prefix": "format_off",
+    "body": [
+      "// clang-format off"],
+    "description": "Clang format off"
+  },
+
+  "format on": {
+    "prefix": "format_on",
+    "body": [
+      "// clang-format on"],
+    "description": "Clang format on"
   }
 }

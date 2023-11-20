@@ -413,6 +413,7 @@
 		"body":	"<xacro:include filename=\"${1:xacroFile}\"/>",
 		"description": "Insert xacro include tag"
 	},
+
 	"transmissionFull": {
 		"prefix": "transmission",
 		"body": [
