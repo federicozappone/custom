@@ -16,9 +16,9 @@
       "# find_package(GTSAM REQUIRED)",
       "# find_package(Eigen3 REQUIRED)",
       "",
-      "",
       "execute_process(",
-      "  COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_CURRENT_LIST_DIR}/build/compile_commands.json ${CMAKE_CURRENT_LIST_DIR}/compile_commands.json",
+      "  COMMAND \\${CMAKE_COMMAND} -E create_symlink \\${CMAKE_CURRENT_LIST_DIR}/build/compile_commands.json",
+      "  \\${CMAKE_CURRENT_LIST_DIR}/compile_commands.json",
       ")",
       "",
       "# include(FetchContent)",
@@ -44,14 +44,14 @@
       "# FetchContent_MakeAvailable(Eigen3)",
       "",
       "",
-      "# include_directories(${Eigen3_SOURCE_DIR})",
-      "# include_directories(${GTSAM_INCLUDE_DIR})",
-      "# include_directories(${OpenCV_INCLUDE_DIRS})",
+      "# include_directories(\\${Eigen3_SOURCE_DIR})",
+      "# include_directories(\\${GTSAM_INCLUDE_DIR})",
+      "# include_directories(\\${OpenCV_INCLUDE_DIRS})",
       "",
       "",
       "add_executable(main main.cc)",
       "",
-      "# target_link_libraries(main PRIVATE ${OpenCV_LIBS})",
+      "# target_link_libraries(main PRIVATE \\${OpenCV_LIBS})",
       "# target_link_libraries(main PRIVATE Threads::Threads)",
       "# target_link_libraries(main PRIVATE Eigen3::Eigen)",
       "# target_link_libraries(main PRIVATE gtsam)",
@@ -68,14 +68,64 @@
     "description": "Custom CMake Template"
   },
 
+  "Simple CMake Template": {
+    "prefix": "cmake",
+    "body": [
+      "cmake_minimum_required(VERSION 3.10)",
+      "project(${1:project_name})",
+      "",
+      "set(CMAKE_CXX_STANDARD 17)",
+      "set(CMAKE_THREAD_PREFER_PTHREAD TRUE)",
+      "set(THREADS_PREFER_PTHREAD_FLAG TRUE)",
+      "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)",
+      "",
+      "execute_process(",
+      "  COMMAND \\${CMAKE_COMMAND} -E create_symlink \\${CMAKE_CURRENT_LIST_DIR}/build/compile_commands.json",
+      "  \\${CMAKE_CURRENT_LIST_DIR}/compile_commands.json",
+      ")",
+      "",
+      "# include_directories(\\${CMAKE_CURRENT_LIST_DIR})",
+      "# include_directories(\\${CMAKE_CURRENT_LIST_DIR}/include)",
+      "",
+      "# add_library(library library.cpp)",
+      "",
+      "add_executable($2 ${2:main}.cpp)",
+      "# target_link_libraries($2 PRIVATE Threads::Threads)"
+    ],
+    "description": "Simple CMake Template"
+  },
+
+  "CMake Unit Test": {
+    "prefix": "utest",
+    "body": [
+      "include(GoogleTest)",
+      "enable_testing()",
+      "",
+      "add_executable(${1:utest_name} $1.cc)",
+      "target_link_libraries($1 GTest::gtest_main)",
+      "",
+      "gtest_discover_tests($1)"
+    ],
+    "description": "Unit test entry"
+  },
+
+  "CMake executable": {
+    "prefix": "executable",
+    "body": [
+      "add_executable(${1:utest_name} $1.cc)",
+      "target_link_libraries($1 PRIVATE Threads::Threads)"
+    ],
+    "description": "CMake executable"
+  },
+
   "Compile Commands Export": {
     "prefix": "compile_commands",
     "body": [
       "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)",
       "",
       "execute_process(",
-      "  COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_CURRENT_LIST_DIR}/build/compile_commands.json",
-      "  ${CMAKE_CURRENT_LIST_DIR}/compile_commands.json",
+      "  COMMAND \\${CMAKE_COMMAND} -E create_symlink \\${CMAKE_CURRENT_LIST_DIR}/build/compile_commands.json",
+      "  \\${CMAKE_CURRENT_LIST_DIR}/compile_commands.json",
       ")"
     ],
     "description": "Compile commands flag"
@@ -87,8 +137,8 @@
       "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)",
       "",
       "execute_process(",
-      "  COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_CURRENT_LIST_DIR}../../build/compile_commands.json",
-      "  ${CMAKE_CURRENT_LIST_DIR}/compile_commands.json",
+      "  COMMAND \\${CMAKE_COMMAND} -E create_symlink \\${CMAKE_CURRENT_LIST_DIR}../../build/compile_commands.json",
+      "  \\${CMAKE_CURRENT_LIST_DIR}/compile_commands.json",
       ")"
     ],
     "description": "Compile commands flag for ROS2"
@@ -101,8 +151,8 @@
       "  launch",
       "  urdf",
       "  rviz",
-      "  DESTINATION share/${PROJECT_NAME})"
+      "  DESTINATION share/\\${PROJECT_NAME})"
     ],
-    "description": "Custom CMake Template"
+    "description": "Install common directories for ROS2"
   }
 }

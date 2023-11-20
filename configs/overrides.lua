@@ -8,7 +8,7 @@ M.cmp = {
 }
 
 M.telescope = {
-  extensions_list = { "themes", "terms", "fzf", "luasnip", "persisted" },
+  extensions_list = { "themes", "terms", "fzf", "luasnip", "persisted", "file_browser" },
 }
 
 M.treesitter = {

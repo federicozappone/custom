@@ -3,10 +3,10 @@ local M = {}
 
 M.general = {
   n = {
-    ["<C-S-A>"] = { "gg0VG$", "Select all" },
+    ["<leader>a"] = { "gg0VG$", "Select all" },
     ["<Enter>"] = { "o<ESC>", "New line below" },
     ["<S-Enter>"] = { "O<ESC>", "New line above" },
-    ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
+    ["<C-s>"] = { "<cmd>wa<CR>", "Save file" },
     ["<C-right>"] = { "<c-w>>", "Change window size" },
     ["<C-left>"] = { "<c-w><", "Change window size" },
     ["<C-up>"] = { "<c-w>+", "Change window size" },
@@ -19,9 +19,9 @@ M.general = {
     ["<C-k>"] = { "<C-w>k", "Window up" },
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
-    ["<leader>ng"] = { "<cmd>lua require'neogen'.generate()<cr>", "Generate documentation" },
     ["gg"] = { "gg0", "Move to the beginning of the buffer" },
     ["G"] = { "G$", "Move to the end of the buffer" },
+    ["<leader>v"] = { "<cmd>vsp<cr>", "Vertical split" },
   },
 
   v = {
@@ -39,11 +39,20 @@ M.general = {
   },
 }
 
+M.neogen = {
+  n = {
+    ["<leader>ng"] = { "<cmd>lua require'neogen'.generate()<cr>", "Generate documentation" },
+  },
+}
+
 M.telescope = {
   n = {
     ["<leader>fg"] = { "<cmd>Telescope git_files<cr>", "Git files" },
     ["<leader>fq"] = { "<cmd>Telescope persisted<cr>", "Persisted" },
     ["<leader>fs"] = { "<cmd>Telescope luasnip<cr>", "Snippets" },
+    ["<leader>fh"] = { "<cmd>Telescope file_browser path=~<cr>", "File browser in home" },
+    ["<leader>fb"] = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", "File browser" },
+    ["<C-n>"] = { "<cmd>Telescope file_browser<cr>", "File browser" },
   },
 }
 

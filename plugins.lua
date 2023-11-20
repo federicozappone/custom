@@ -78,6 +78,11 @@ local plugins = {
   {
     event = "BufRead",
     "Civitasv/cmake-tools.nvim",
+    config = function()
+      require("cmake-tools").setup {
+        cmake_build_directory = "build",
+      }
+    end,
   },
 
   {
@@ -238,16 +243,13 @@ local plugins = {
 
   {
     lazy = false,
-    "kelly-lin/ranger.nvim",
-    config = function()
-      require("ranger-nvim").setup { replace_netrw = true }
-      vim.api.nvim_set_keymap("n", "<leader>ef", "", {
-        noremap = true,
-        callback = function()
-          require("ranger-nvim").open(true)
-        end,
-      })
-    end,
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    enabled = false,
   },
 
   {

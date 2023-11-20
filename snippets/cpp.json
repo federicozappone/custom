@@ -25,7 +25,7 @@
       "\t$3(const $3&) = default;",
       "\t$3& operator=($3&&) = default;",
       "\t$3& operator=(const $3&) = default;",
-      "\t~$3() = default;",
+      "\tvirtual ~$3() = default;",
       "",
       "private:",
       "};",
@@ -34,7 +34,65 @@
       "",
       "#endif  // $1_H"
     ],
-    "description": "Code snippet for header with a class"
+    "description": "Header with a simple class"
+  },
+
+  "header simple": {
+    "prefix": "header_simple",
+    "body": [
+      "#ifndef ${1:DEBUG}_H",
+      "#define $1_H",
+      "",
+      "namespace ${2:name} {",
+      "",
+      "class ${3:MyClass}",
+      "{",
+      "public:",
+      "\t$3();",
+      "\tvirtual ~$3();",
+      "",
+      "private:",
+      "};",
+      "",
+      "}  // namespace $2",
+      "",
+      "#endif  // $1_H"
+    ],
+    "description": "Header with a simpler class"
+  },
+
+  "class": {
+    "prefix": "class",
+    "body": [
+      "class ${1:MyClass}",
+      "{",
+      "public:",
+      "\t$1() = default;",
+      "\t$1($1&&) = default;",
+      "\t$1(const $1&) = default;",
+      "\t$1& operator=($1&&) = default;",
+      "\t$1& operator=(const $1&) = default;",
+      "\tvirtual ~$1() = default;",
+      "",
+      "private:",
+      "};"
+    ],
+    "description": "Simple class"
+  },
+
+  "simple class": {
+    "prefix": "simple_class",
+    "body": [
+      "class ${1:MyClass}",
+      "{",
+      "public:",
+      "\t$1();",
+      "\tvirtual ~$1();",
+      "",
+      "private:",
+      "};"
+    ],
+    "description": "Simple class"
   },
 
   "format off": {
@@ -49,5 +107,17 @@
     "body": [
       "// clang-format on"],
     "description": "Clang format on"
+  },
+
+  "ostream": {
+    "prefix": "ostream",
+    "body": [
+      "friend std::ostream& operator<<(std::ostream& stream, const ${1:Class_Name}& obj)",
+      "{",
+      "  stream << \"Hello from $1!\";",
+      "  return stream;",
+      "}"
+    ],
+    "description": "Output stream template"
   }
 }
