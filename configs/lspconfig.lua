@@ -21,6 +21,7 @@ lspconfig["clangd"].setup {
     "clangd",
     "--clang-tidy",
     "--header-insertion-decorators",
+    "--header-insertion=never",
     "--offset-encoding=utf-16",
     "--all-scopes-completion",
     "--completion-style=bundled",
