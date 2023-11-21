@@ -39,6 +39,10 @@
         "path": "./clang.json"
       },
       {
+        "language": ["make"],
+        "path": "./makefile.json"
+      },
+      {
         "language": ["yaml", "javascript", "global", "plaintext", "all"],
         "path": "./snippet.json"
       },

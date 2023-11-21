@@ -1,0 +1,28 @@
+{
+  "makefile": {
+    "prefix": "makefile",
+    "body": [
+      "# Makefile",
+      "",
+      "all: build",
+      "",
+      "build: | build_dir",
+      "	cd build && cmake .. && make",
+      "",
+      "build_dir:",
+      "	mkdir -p build",
+      "",
+      "clean:",
+      "	rm -rf build lib bin include doc/html doc/latex",
+      "",
+      "install: build",
+      "	cd build && make install",
+      "",
+      "check: build",
+      "	for test in bin/utest_*; do \\$\\$test; done",
+      "",
+      ".PHONY: all build build_dir clean install check"
+    ],
+    "description": "Standard Makefile for CMake"
+  }
+}

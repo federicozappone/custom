@@ -118,6 +118,24 @@
     "description": "CMake executable"
   },
 
+  "Install dirs": {
+    "prefix": "install_dirs",
+    "body": [
+      "set(INSTALL_INCLUDE_DIR \\${CMAKE_CURRENT_LIST_DIR}/include)",
+      "set(INSTALL_BIN_DIR     \\${CMAKE_CURRENT_LIST_DIR}/bin)",
+      "set(INSTALL_LIB_DIR     \\${CMAKE_CURRENT_LIST_DIR}/lib)"
+    ],
+    "description": "CMake standard install dirs"
+  },
+
+  "Install binaries": {
+    "prefix": "install",
+    "body": [
+      "install(TARGETS ${1:main} DESTINATION \\${INSTALL_BIN_DIR})"
+    ],
+    "description": "Install binaries"
+  },
+
   "Compile Commands Export": {
     "prefix": "compile_commands",
     "body": [
