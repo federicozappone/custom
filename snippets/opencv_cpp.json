@@ -1,1 +1,28 @@
-{}
+{
+  "OpenCV includes": {
+    "prefix": "ocv_includes",
+    "body": [
+      "#include <opencv2/core/core.hpp>",
+      "#include <opencv2/features2d/features2d.hpp>",
+      "#include <opencv2/highgui/highgui.hpp>",
+      "#include <opencv2/calib3d/calib3d.hpp>"
+    ],
+    "description": "Common OpenCV includes"
+  },
+
+  "Read color image": {
+    "prefix": "imread_color",
+    "body": [
+      "cv::Mat ${2:img} = cv::imread(${1:\"image_path\"}, cv::IMREAD_COLOR);"
+    ],
+    "description": "Read color image"
+  },
+
+  "Read grayscale image": {
+    "prefix": "imread_gray",
+    "body": [
+      "cv::Mat ${2:img} = cv::imread(${1:\"image_path\"}, cv::IMREAD_GRAYSCALE);"
+    ],
+    "description": "Read grayscale image"
+  }
+}

@@ -68,6 +68,26 @@
     "description": "Custom CMake Template"
   },
 
+  "Eigen": {
+    "prefix": "eigen",
+    "body": [
+      "find_package(Eigen3 REQUIRED)",
+      "include_directories(\\${EIGEN3_INCLUDE_DIR})",
+      "target_link_libraries(${1:main} PRIVATE Eigen3::Eigen)"
+    ],
+    "description": "Add Eigen"
+  },
+
+  "OpenCV": {
+    "prefix": "opencv",
+    "body": [
+      "find_package(OpenCV REQUIRED)",
+      "include_directories(\\${OpenCV_INCLUDE_DIRS})",
+      "target_link_libraries(${1:main} PRIVATE \\${OpenCV_LIBS})"
+    ],
+    "description": "Add OpenCV"
+  },
+
   "Simple CMake Template": {
     "prefix": "cmake",
     "body": [

@@ -5,7 +5,8 @@
       "#ifndef ${1:DEBUG}_H",
       "#define $1_H",
       "$0",
-      "#endif  // $1_H"],
+      "#endif  // $1_H"
+    ],
     "description": "Header guard"
   },
 
@@ -98,14 +99,16 @@
   "format off": {
     "prefix": "format_off",
     "body": [
-      "// clang-format off"],
+      "// clang-format off"
+    ],
     "description": "Clang format off"
   },
 
   "format on": {
     "prefix": "format_on",
     "body": [
-      "// clang-format on"],
+      "// clang-format on"
+    ],
     "description": "Clang format on"
   },
 
@@ -364,5 +367,19 @@
       "typedef std::shared_ptr<${1:Class_Name}> Ptr;"
     ],
     "description": "Class ptr definition"
+  },
+
+  "Doxygen header": {
+    "prefix": "docheader",
+    "body": [
+      "/**",
+      " * @file $TM_FILENAME",
+      " * @brief ${1:brief description}",
+      " *",
+      " * @author Federico Zappone",
+      " * @date $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      " */"
+    ],
+    "description": "Doxygen header"
   }
 }

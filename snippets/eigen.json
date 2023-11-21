@@ -5,5 +5,12 @@
       "EIGEN_MAKE_ALIGNED_OPERATOR_NEW;"
     ],
     "description": "Eigen make aligned"
+  },
+  "SVD": {
+    "prefix": "svd",
+    "body": [
+      "Eigen::JacobiSVD<Eigen::${1:Matrix4d}> SVD(${2:A}, Eigen::ComputeFullU | Eigen::ComputeFullV);"
+    ],
+    "description": "Eigen SVD"
   }
 }

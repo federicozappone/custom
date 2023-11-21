@@ -11,6 +11,7 @@ M.general = {
     ["<C-left>"] = { "<c-w><", "Change window size" },
     ["<C-up>"] = { "<c-w>+", "Change window size" },
     ["<C-down>"] = { "<c-w>-", "Change window size" },
+    ["<leader>e"] = { "<c-w>=", "Equalize splits size" },
     ["H"] = { "^", "Move to head of line" },
     ["L"] = { "$", "Move to end of line" },
     ["<C-h>"] = { "<C-w>h", "Window left" },
@@ -110,15 +111,7 @@ M.cpp = {
   n = {
     ["<leader>cd"] = { "<cmd>TSCppDefineClassFunc<cr>", "Define Class Functions" },
     ["<leader>cc"] = { "<cmd>TSCppMakeConcreteClass<cr>", "Make Concrete Class" },
-    ["<leader>cb"] = { "ViBj$o2kO", "Visual select block" },
-    ["<leader>cn"] = {
-      "ViBjmbo2k0ma<ESC>'bo<cr>}<ESC>'aO<ESC>O{<ESC>0vt{cnamespace name <ESC>hviw",
-      "Wrap block in namespace",
-    },
-  },
-  v = {
-    ["<leader>cd"] = { "<cmd>TSCppDefineClassFunc<cr>", "Define Class Functions" },
-    ["<leader>cc"] = { "<cmd>TSCppMakeConcreteClass<cr>", "Make Concrete Class" },
+    ["<leader>cs"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch source header" },
   },
 }
 
