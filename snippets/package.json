@@ -31,8 +31,12 @@
         "path": "./opencv_cpp.json"
       },
       {
+        "language": ["python"],
+        "path": "./opencv_python.json"
+      },
+      {
         "language": ["cpp"],
-        "path": "./eigen_cpp.json"
+        "path": "./eigen.json"
       },
       {
         "language": ["yaml", "plaintext", "all", "global"],
@@ -43,8 +47,8 @@
         "path": "./makefile.json"
       },
       {
-        "language": ["yaml", "javascript", "global", "plaintext", "all"],
-        "path": "./snippet.json"
+        "language": ["yaml", "plaintext", "all", "global"],
+        "path": "./json.json"
       },
       {
         "language": ["python"],

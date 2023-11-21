@@ -1,0 +1,15 @@
+{
+  "tnippet template": {
+    "prefix": "snip",
+    "body": [
+      "  \"Snippet Template\": {",
+      "    \"prefix\": \"snip\",",
+      "    \"body\": [",
+      "      \"\"",
+      "    ],",
+      "    \"description\": \"Snippet description\"",
+      "  },"
+    ],
+    "description": "Snippet template"
+  }
+}

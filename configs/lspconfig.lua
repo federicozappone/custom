@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "cmake", "bashls", "marksman", "pylsp", "rust_analyzer" }
+local servers = { "html", "cssls", "tsserver", "clangd", "cmake", "bashls", "marksman", "pylsp", "rust_analyzer", "yamlls", "jsonls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -22,7 +22,6 @@ lspconfig["clangd"].setup {
     "--clang-tidy",
     "--header-insertion-decorators",
     "--offset-encoding=utf-16",
-    -- "--header-insertion=never",
     "--all-scopes-completion",
     "--completion-style=bundled",
   },

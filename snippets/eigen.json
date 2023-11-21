@@ -1,1 +1,9 @@
-{}
+{
+  "Aligned": {
+    "prefix": "aligned",
+    "body": [
+      "EIGEN_MAKE_ALIGNED_OPERATOR_NEW;"
+    ],
+    "description": "Eigen make aligned"
+  }
+}

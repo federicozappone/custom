@@ -311,7 +311,7 @@
       "  void callback_fn() override",
       "  {",
       "    std::cout << \"Hello from $1_Callback_Impl.\\n\";",
-      "    std::this_thread::sleep_for(std::chrono::milliseconds(1000));",
+      "    std::this_thread::sleep_for(std::chrono::seconds(1));",
       "  }",
       "};",
       "",
@@ -322,11 +322,11 @@
       "  manager.start();",
       "",
       "  manager.register_callback(cb1);",
-      "  std::this_thread::sleep_for(std::chrono::milliseconds(5000));",
+      "  std::this_thread::sleep_for(std::chrono::seconds(5));",
       "  manager.unregister_callback(cb1);",
-      "  std::this_thread::sleep_for(std::chrono::milliseconds(5000));",
+      "  std::this_thread::sleep_for(std::chrono::seconds(5));",
       "  manager.register_callback(cb1);",
-      "  std::this_thread::sleep_for(std::chrono::milliseconds(5000));",
+      "  std::this_thread::sleep_for(std::chrono::seconds(5));",
       "",
       "  manager.stop();",
       "",
@@ -334,5 +334,35 @@
       "}"
     ],
     "description": "Simple threaded class with callbacks"
+  },
+
+  "singleton": {
+    "prefix": "singleton",
+    "body": [
+      "class ${1:Singleton}",
+      "{",
+      "public:",
+      "  static $1& get_instance()",
+      "  {",
+      "    static $1 instance;",
+      "    return instance;",
+      "  }",
+      "",
+      "  $1(const $1&) = delete;",
+      "  $1& operator=(const $1&) = delete;",
+      "",
+      "private:",
+      "  $1() {}",
+      "};"
+    ],
+    "description": "Singleton"
+  },
+
+  "Ptr": {
+    "prefix": "ptr",
+    "body": [
+      "typedef std::shared_ptr<${1:Class_Name}> Ptr;"
+    ],
+    "description": "Class ptr definition"
   }
 }

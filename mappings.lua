@@ -53,6 +53,7 @@ M.telescope = {
     ["<leader>fh"] = { "<cmd>Telescope file_browser path=~<cr>", "File browser in home" },
     ["<leader>fb"] = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", "File browser" },
     ["<C-n>"] = { "<cmd>Telescope file_browser<cr>", "File browser" },
+    ["<leader>fr"] = { "<cmd>Telescope lsp_references<cr>", "LSP references" },
   },
 }
 
