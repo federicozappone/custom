@@ -1,15 +1,24 @@
 {
-  "Aligned": {
+  "Eigen Core": {
+    "prefix": "eigeninc",
+    "body": [
+      "#include <Eigen/Core>"
+    ],
+    "description": "Eigen Core header"
+  },
+
+  "Aligned Operator": {
     "prefix": "aligned",
     "body": [
       "EIGEN_MAKE_ALIGNED_OPERATOR_NEW;"
     ],
     "description": "Eigen make aligned"
   },
+
   "SVD": {
     "prefix": "svd",
     "body": [
-      "Eigen::JacobiSVD<Eigen::${1:Matrix4d}> SVD(${2:A}, Eigen::ComputeFullU | Eigen::ComputeFullV);"
+      "Eigen::JacobiSVD<Eigen::${1:Matrix3d}> SVD(${2:A}, Eigen::ComputeFullU | Eigen::ComputeFullV);"
     ],
     "description": "Eigen SVD"
   }

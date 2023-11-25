@@ -40,6 +40,16 @@ M.general = {
   },
 }
 
+M.git = {
+  n = {
+    ["<leader>gr"] = { "<cmd>Gitsigns reset_hunk<cr>", "Reset hunk" },
+    ["<leader>gg"] = { "<cmd>Gitsigns next_hunk<cr>", "Next hunk" },
+    ["<leader>gp"] = { "<cmd>Gitsigns preview_hunk_inline<cr>", "Preview hunk" },
+    ["<leader>gt"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame" },
+    ["<leader>gs"] = { "<cmd>Telescope git_status<cr>", "Git status" },
+  }
+}
+
 M.neogen = {
   n = {
     ["<leader>ng"] = { "<cmd>lua require'neogen'.generate()<cr>", "Generate documentation" },
@@ -48,13 +58,14 @@ M.neogen = {
 
 M.telescope = {
   n = {
+    ["<C-n>"] = { "<cmd>Telescope file_browser<cr>", "File browser" },
     ["<leader>fg"] = { "<cmd>Telescope git_files<cr>", "Git files" },
     ["<leader>fq"] = { "<cmd>Telescope persisted<cr>", "Persisted" },
     ["<leader>fs"] = { "<cmd>Telescope luasnip<cr>", "Snippets" },
     ["<leader>fh"] = { "<cmd>Telescope file_browser path=~<cr>", "File browser in home" },
     ["<leader>fb"] = { "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", "File browser" },
-    ["<C-n>"] = { "<cmd>Telescope file_browser<cr>", "File browser" },
     ["<leader>fr"] = { "<cmd>Telescope lsp_references<cr>", "LSP references" },
+    ["<leader>fn"] = { "<cmd>Telescope marks<cr>", "Marks" },
   },
 }
 

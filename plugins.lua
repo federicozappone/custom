@@ -285,6 +285,17 @@ local plugins = {
       }
     end,
   },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    version = "2.20.7",
+    opts = overrides.blankline,
+  },
+
+  {
+    event = "BufRead",
+    "chentoast/marks.nvim",
+  },
 }
 
 return plugins

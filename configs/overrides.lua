@@ -113,4 +113,9 @@ M.nvimtree = {
   },
 }
 
+M.blankline = {
+  show_current_context = false,
+  -- show_trailing_blankline_indent = true,
+}
+
 return M
