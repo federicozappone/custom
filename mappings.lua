@@ -23,6 +23,9 @@ M.general = {
     ["gg"] = { "gg0", "Move to the beginning of the buffer" },
     ["G"] = { "G$", "Move to the end of the buffer" },
     ["<leader>v"] = { "<cmd>vsp<cr>", "Vertical split" },
+    ["<C-u>"] = { "<C-y>", "Scroll up" },
+    ["<C-d>"] = { "<C-e>", "Scroll down" },
+    ["<leader>de"] = { "v$hd", "Delete from cursor till end" },
   },
 
   v = {
@@ -47,7 +50,7 @@ M.git = {
     ["<leader>gp"] = { "<cmd>Gitsigns preview_hunk_inline<cr>", "Preview hunk" },
     ["<leader>gt"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame" },
     ["<leader>gs"] = { "<cmd>Telescope git_status<cr>", "Git status" },
-  }
+  },
 }
 
 M.neogen = {
@@ -181,6 +184,7 @@ M.lspconfig = {
       end,
       "LSP quickfix",
     },
+    ["<leader>lr"] = {"<cmd>LspRestart<cr>", "Restart LSP"}
   },
 }
 
