@@ -1,73 +1,4 @@
 {
-  "Custom CMake Template": {
-    "prefix": "cmake",
-    "body": [
-      "cmake_minimum_required(VERSION 3.10)",
-      "project(project_name)",
-      "",
-      "",
-      "set(CMAKE_CXX_STANDARD 20)",
-      "set(CMAKE_THREAD_PREFER_PTHREAD TRUE)",
-      "set(THREADS_PREFER_PTHREAD_FLAG TRUE)",
-      "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)",
-      "",
-      "# find_package(Threads REQUIRED)",
-      "# find_package(OpenCV REQUIRED)",
-      "# find_package(GTSAM REQUIRED)",
-      "# find_package(Eigen3 REQUIRED)",
-      "",
-      "execute_process(",
-      "  COMMAND \\${CMAKE_COMMAND} -E create_symlink \\${CMAKE_CURRENT_LIST_DIR}/build/compile_commands.json",
-      "  \\${CMAKE_CURRENT_LIST_DIR}/compile_commands.json",
-      ")",
-      "",
-      "# include(FetchContent)",
-      "",
-      "# FetchContent_Declare(",
-      "#   googletest",
-      "#   URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip",
-      "# )",
-      "# FetchContent_MakeAvailable(googletest)",
-      "",
-      "# FetchContent_Declare(",
-      "#   Eigen3",
-      "#   GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git",
-      "#   GIT_TAG master",
-      "#   GIT_SHALLOW TRUE",
-      "#   GIT_PROGRESS TRUE",
-      "# )",
-      "#",
-      "# set(EIGEN_BUILD_DOC OFF)",
-      "# set(BUILD_TESTING OFF)",
-      "# set(EIGEN_BUILD_PKGCONFIG OFF)",
-      "#",
-      "# FetchContent_MakeAvailable(Eigen3)",
-      "",
-      "",
-      "# include_directories(\\${Eigen3_SOURCE_DIR})",
-      "# include_directories(\\${GTSAM_INCLUDE_DIR})",
-      "# include_directories(\\${OpenCV_INCLUDE_DIRS})",
-      "",
-      "",
-      "add_executable(main main.cc)",
-      "",
-      "# target_link_libraries(main PRIVATE \\${OpenCV_LIBS})",
-      "# target_link_libraries(main PRIVATE Threads::Threads)",
-      "# target_link_libraries(main PRIVATE Eigen3::Eigen)",
-      "# target_link_libraries(main PRIVATE gtsam)",
-      "",
-      "",
-      "# enable_testing()",
-      "",
-      "# add_executable(utest_sample utest_sample.cc)",
-      "# target_link_libraries(utest_sample GTest::gtest_main)",
-      "",
-      "# include(GoogleTest)",
-      "# gtest_discover_tests(utest_sample)"
-    ],
-    "description": "Custom CMake Template"
-  },
-
   "Eigen": {
     "prefix": "eigen",
     "body": [
@@ -76,6 +7,16 @@
       "target_link_libraries(${1:main} PRIVATE Eigen3::Eigen)"
     ],
     "description": "Add Eigen"
+  },
+
+  "Planning": {
+    "prefix": "planning",
+    "body": [
+      "find_package(octomap REQUIRED)",
+      "find_package(ompl REQUIRED)",
+      "find_package(fcl REQUIRED)"
+    ],
+    "description": "Add planning pipeline libraries"
   },
 
   "OpenCV": {
@@ -88,6 +29,14 @@
     "description": "Add OpenCV"
   },
 
+  "Install RPATH": {
+    "prefix": "rpath",
+    "body": [
+      "set(CMAKE_INSTALL_RPATH \"${1:LIB_DIR}\")"
+    ],
+    "description": "RPATH definition"
+  },
+
   "Simple CMake Template": {
     "prefix": "cmake",
     "body": [
@@ -98,6 +47,10 @@
       "set(CMAKE_THREAD_PREFER_PTHREAD TRUE)",
       "set(THREADS_PREFER_PTHREAD_FLAG TRUE)",
       "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)",
+      "",
+      "# set(CMAKE_BUILD_TYPE Debug)",
+      "# set(CMAKE_BUILD_TYPE Release)",
+      "# set(CMAKE_BUILD_TYPE RelWithDebInfo)",
       "",
       "execute_process(",
       "  COMMAND \\${CMAKE_COMMAND} -E create_symlink \\${CMAKE_CURRENT_LIST_DIR}/build/compile_commands.json",
@@ -113,6 +66,16 @@
       "# target_link_libraries($2 PRIVATE Threads::Threads)"
     ],
     "description": "Simple CMake Template"
+  },
+
+  "Debug Symbols": {
+    "prefix": "debug",
+    "body": [
+      "set(CMAKE_BUILD_TYPE Debug)",
+      "# set(CMAKE_BUILD_TYPE Release)",
+      "# set(CMAKE_BUILD_TYPE RelWithDebInfo)"
+    ],
+    "description": "Add debug symbols"
   },
 
   "CMake Unit Test": {
@@ -167,19 +130,6 @@
       ")"
     ],
     "description": "Compile commands flag"
-  },
-
-  "ROS2 Compile Commands Export": {
-    "prefix": "compile_commands_ros2",
-    "body": [
-      "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)",
-      "",
-      "execute_process(",
-      "  COMMAND \\${CMAKE_COMMAND} -E create_symlink \\${CMAKE_CURRENT_LIST_DIR}../../build/compile_commands.json",
-      "  \\${CMAKE_CURRENT_LIST_DIR}/compile_commands.json",
-      ")"
-    ],
-    "description": "Compile commands flag for ROS2"
   },
 
   "ROS2 Install Dirs": {
