@@ -47,6 +47,16 @@
     "description": "Add Boost"
   },
 
+  "Python": {
+    "prefix": "python",
+    "body": [
+      "find_package(Python COMPONENTS Interpreter Development REQUIRED)",
+      "target_include_directories(${1:main} PRIVATE \\${Python_INCLUDE_DIRS})",
+      "target_link_libraries(${1:main} PRIVATE \\${Python_LIBRARIES})"
+    ],
+    "description": "Add Python"
+  },
+
   "Planning": {
     "prefix": "planning",
     "body": [
