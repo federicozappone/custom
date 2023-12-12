@@ -9,14 +9,22 @@
     "description": "Add Eigen"
   },
 
-  "Planning": {
-    "prefix": "planning",
+  "Ceres": {
+    "prefix": "ceres",
     "body": [
-      "find_package(octomap REQUIRED)",
-      "find_package(ompl REQUIRED)",
-      "find_package(fcl REQUIRED)"
+      "find_package(Ceres REQUIRED)",
+      "target_link_libraries(${1:main} PRIVATE \\${CERES_LIBRARIES})"
     ],
-    "description": "Add planning pipeline libraries"
+    "description": "Add Ceres"
+  },
+
+  "GTSAM": {
+    "prefix": "gtsam",
+    "body": [
+      "find_package(GTSAM REQUIRED)",
+      "target_link_libraries(${1:main} PRIVATE gtsam)"
+    ],
+    "description": "Add GTSAM"
   },
 
   "OpenCV": {
@@ -27,6 +35,26 @@
       "target_link_libraries(${1:main} PRIVATE \\${OpenCV_LIBS})"
     ],
     "description": "Add OpenCV"
+  },
+
+  "Boost": {
+    "prefix": "boost",
+    "body": [
+      "find_package(Boost REQUIRED COMPONENTS system filesystem optional smart_ptr)",
+      "include_directories(\\${Boost_INCLUDE_DIRS})",
+      "target_link_libraries(${1:main} PRIVATE \\${Boost_LIBRARIES})"
+    ],
+    "description": "Add Boost"
+  },
+
+  "Planning": {
+    "prefix": "planning",
+    "body": [
+      "find_package(octomap REQUIRED)",
+      "find_package(ompl REQUIRED)",
+      "find_package(fcl REQUIRED)"
+    ],
+    "description": "Add planning pipeline libraries"
   },
 
   "Install RPATH": {
@@ -142,5 +170,31 @@
       "  DESTINATION share/\\${PROJECT_NAME})"
     ],
     "description": "Install common directories for ROS2"
+  },
+
+  "Doxygen": {
+    "prefix": "doxygen",
+    "body": [
+      "option(BUILD_DOC \"Build documentation\" ON)",
+      "",
+      "find_package(Doxygen)",
+      "",
+      "if (DOXYGEN_FOUND)",
+      "    set(DOXYGEN_IN \\${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)",
+      "    set(DOXYGEN_OUT \\${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)",
+      "",
+      "    configure_file(\\${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)",
+      "    message(\"Doxygen build started\")",
+      "",
+      "    add_custom_target(doc_doxygen ALL",
+      "        COMMAND \\${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}",
+      "        WORKING_DIRECTORY \\${CMAKE_CURRENT_BINARY_DIR}",
+      "        COMMENT \"Generating API documentation with Doxygen\"",
+      "        VERBATIM )",
+      "else (DOXYGEN_FOUND)",
+      "  message(\"Doxygen need to be installed to generate the doxygen documentation\")",
+      "endif (DOXYGEN_FOUND)"
+    ],
+    "description": "Add Doxygen documentation generation"
   }
 }

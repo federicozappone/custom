@@ -381,5 +381,13 @@
       " */"
     ],
     "description": "Doxygen header"
+  },
+
+  "Standard Cout": {
+    "prefix": "cout",
+    "body": [
+      "std::cout << ${1:value} << std::endl;"
+    ],
+    "description": "Snippet description"
   }
 }
