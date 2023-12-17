@@ -41,7 +41,7 @@ nvm install node
 
 ```
 git clone https://github.com/NvChad/NvChad.git $HOME/.config/nvim
-git clone https://github.com/federicozappone/custom_v2.git $HOME/.config/nvim/lua/custom
+git clone https://github.com/federicozappone/custom.git $HOME/.config/nvim/lua/custom
 ```
 
 ## Fonts
