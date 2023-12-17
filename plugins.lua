@@ -102,12 +102,10 @@ local plugins = {
     "hedyhli/outline.nvim",
     lazy = true,
     cmd = { "Outline", "OutlineOpen" },
-    keys = { -- Example mapping to toggle outline
+    keys = {
       { "<leader>tt", "<cmd>Outline<CR>", desc = "Toggle outline" },
     },
-    opts = {
-      -- Your setup opts here
-    },
+    opts = {},
   },
 
   {
@@ -186,7 +184,7 @@ local plugins = {
         langs = {
           all = true,
           lua = true,
-          cpp = true,
+          cpp = false,
           asm = false,
           cmake = true,
           markdown = true,

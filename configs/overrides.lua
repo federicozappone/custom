@@ -25,6 +25,7 @@ M.treesitter = {
     "python",
     "markdown",
     "markdown_inline",
+    "rust",
   },
   indent = {
     enable = true,
@@ -72,6 +73,7 @@ M.mason = {
 
     -- rust
     "rust-analyzer",
+    "rustfmt",
 
     -- yaml
     "yaml-language-server",
