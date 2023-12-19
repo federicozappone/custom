@@ -101,7 +101,7 @@
       "# add_library(library library.cpp)",
       "",
       "add_executable($2 ${2:main}.cpp)",
-      "# target_link_libraries($2 PRIVATE Threads::Threads)"
+      "# target_link_libraries($2 PRIVATE library)"
     ],
     "description": "Simple CMake Template"
   },

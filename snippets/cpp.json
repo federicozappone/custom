@@ -386,8 +386,36 @@
   "Standard Cout": {
     "prefix": "cout",
     "body": [
-      "std::cout << ${1:value} << std::endl;"
+      "std::cout << ${1:value} << \"\\n\";"
     ],
     "description": "Snippet description"
+  },
+
+  "Random Normal Distribution": {
+    "prefix": "random_normal",
+    "body": [
+      "std::default_random_engine generator;",
+      "std::normal_distribution<double> distribution(${1:mean}, ${2:std_dev});",
+      "distribution(generator);"
+    ],
+    "description": "Random Normal Distribution"
+  },
+
+  "Random Uniform Distribution": {
+    "prefix": "random_uniform",
+    "body": [
+      "std::default_random_engine generator;",
+      "std::uniform_real_distribution<double> distribution(${1:a}, ${2:b});",
+      "distribution(generator);"
+    ],
+    "description": "Random Uniform Distribution"
+  },
+
+  "Insert": {
+    "prefix": "insert",
+    "body": [
+      "${1:vec}.insert(std::end($1), std::begin(${2:other}), std::end($2));"
+    ],
+    "description": "Vector insertion"
   }
 }
