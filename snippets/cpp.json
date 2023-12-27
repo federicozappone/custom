@@ -361,8 +361,8 @@
     "description": "Singleton"
   },
 
-  "Ptr": {
-    "prefix": "ptr",
+  "Ptr typedef": {
+    "prefix": "ptr_typedef",
     "body": [
       "typedef std::shared_ptr<${1:Class_Name}> Ptr;"
     ],
@@ -381,6 +381,36 @@
       " */"
     ],
     "description": "Doxygen header"
+  },
+
+  "Doxygen header full": {
+    "prefix": "docheader",
+    "body": [
+      "/**",
+      " * @file $TM_FILENAME",
+      " * @brief ${1:This file contains the implementation of a sample program.}",
+      " *",
+      " * @details",
+      " * ${2:The program demonstrates basic usage of classes and functions to perform",
+      " * common tasks. It includes a main function that serves as the entry point",
+      " * for the application.}",
+      " *",
+      " * @author",
+      " * Federico Zappone <federico.zappone@gmail.com>",
+      " *",
+      " * @date",
+      " * Created on: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      " *",
+      " * @license",
+      " * This program is free software; you can redistribute it and/or modify it",
+      " * under the terms of the MIT License as published by the Open Source",
+      " * Initiative.",
+      " *",
+      " * @note",
+      " * For more information, see https://opensource.org/licenses/MIT.",
+      " */"
+    ],
+    "description": "Doxygen header full"
   },
 
   "Standard Cout": {
@@ -417,5 +447,22 @@
       "${1:vec}.insert(std::end($1), std::begin(${2:other}), std::end($2));"
     ],
     "description": "Vector insertion"
+  },
+
+  "Main": {
+    "prefix": "main",
+    "body": [
+      "#include <iostream>",
+      "",
+      "int main(int argc, char ** argv)",
+      "{",
+      "  (void) argc;",
+      "  (void) argv;",
+      "",
+      "  std::cout << \"Hello world!\\n\";",
+      "  return 0;",
+      "}"
+    ],
+    "description": "Simple main"
   }
 }

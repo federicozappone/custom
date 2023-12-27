@@ -156,6 +156,7 @@ local plugins = {
   -- DAP
 
   {
+    lazy = false,
     "mfussenegger/nvim-dap",
     config = function()
       require("custom.configs.debug").setup()
@@ -163,6 +164,7 @@ local plugins = {
   },
 
   {
+    lazy = false,
     "rcarriga/nvim-dap-ui",
     after = "nvim-dap",
     config = function()
@@ -280,11 +282,6 @@ local plugins = {
     "lukas-reineke/indent-blankline.nvim",
     version = "2.20.7",
     opts = overrides.blankline,
-  },
-
-  {
-    event = "BufRead",
-    "chentoast/marks.nvim",
   },
 }
 
