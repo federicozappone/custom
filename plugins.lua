@@ -283,6 +283,20 @@ local plugins = {
     version = "2.20.7",
     opts = overrides.blankline,
   },
+
+  {
+    lazy = false,
+    "stevearc/oil.nvim",
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("oil").setup {
+        view_options = {
+          show_hidden = true,
+        },
+      }
+    end,
+  },
 }
 
 return plugins
