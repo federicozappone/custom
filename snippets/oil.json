@@ -1,0 +1,27 @@
+{
+  "C++ Project Files": {
+    "prefix": "cpp_files",
+    "body": [
+      ".clang-format",
+      ".clangd",
+      ".gitignore",
+      "CMakeLists.txt",
+      "Makefile"
+    ],
+    "description": "C++ Project Files"
+  },
+  "C++ Gitignore": {
+    "prefix": "gitignore",
+    "body": [
+      ".cache/",
+      "attic/",
+      "bin/",
+      "build/",
+      "doc/",
+      "include/",
+      "lib/",
+      "compile_commands.json"
+    ],
+    "description": "C++ gitignore"
+  }
+}

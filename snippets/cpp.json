@@ -464,5 +464,13 @@
       "}"
     ],
     "description": "Simple main"
+  },
+
+  "Main args": {
+    "prefix": "args",
+    "body": [
+      "int argc, char ** argv"
+    ],
+    "description": "Main args"
   }
 }

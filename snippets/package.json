@@ -39,7 +39,7 @@
         "path": "./eigen.json"
       },
       {
-        "language": ["yaml", "plaintext", "all", "global"],
+        "language": ["all", "global"],
         "path": "./clang.json"
       },
       {
@@ -53,6 +53,10 @@
       {
         "language": ["plaintext", "global", "all"],
         "path": "./doxygen.json"
+      },
+      {
+        "language": ["plaintext", "global", "all"],
+        "path": "./oil.json"
       },
       {
         "language": ["python"],

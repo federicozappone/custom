@@ -119,11 +119,19 @@
   "CMake Unit Test": {
     "prefix": "utest",
     "body": [
+      "# include(FetchContent)",
+      "#",
+      "# FetchContent_Declare(",
+      "#   googletest",
+      "#   URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip",
+      "# )",
+      "# FetchContent_MakeAvailable(googletest)",
+      "",
       "include(GoogleTest)",
       "enable_testing()",
       "",
-      "add_executable(${1:utest_name} $1.cc)",
-      "target_link_libraries($1 GTest::gtest_main)",
+      "add_executable(${1:utest_name} $1.cpp)",
+      "target_link_libraries($1 gtest_main gmock_main)",
       "",
       "gtest_discover_tests($1)"
     ],
