@@ -6,6 +6,7 @@
       ".clangd",
       ".gitignore",
       "CMakeLists.txt",
+      "Doxyfile.in",
       "Makefile"
     ],
     "description": "C++ Project Files"
