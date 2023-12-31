@@ -50,6 +50,7 @@ M.git = {
     ["<leader>gp"] = { "<cmd>Gitsigns preview_hunk_inline<cr>", "Preview hunk" },
     ["<leader>gt"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame" },
     ["<leader>gs"] = { "<cmd>Telescope git_status<cr>", "Git status" },
+    ["<leader>gc"] = { "<cmd>Telescope git_commits<cr>", "Git commits" },
   },
 }
 
