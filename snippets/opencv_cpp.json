@@ -24,5 +24,21 @@
       "cv::Mat ${2:img} = cv::imread(${1:\"image_path\"}, cv::IMREAD_GRAYSCALE);"
     ],
     "description": "Read grayscale image"
+  },
+
+  "Draw line": {
+    "prefix": "line",
+    "body": [
+      "line(${1:img}, ${2:pt1}, ${3:pt2}, Scalar(0, 0, 255), ${4:2}, LINE_8);"
+    ],
+    "description": "Draw line"
+  },
+
+  "Draw circle": {
+    "prefix": "circle",
+    "body": [
+      "circle(${1:img}, ${2:center}, ${1:4}, Scalar(255, 0, 255), FILLED, LINE_8);"
+    ],
+    "description": "Draw circle"
   }
 }
