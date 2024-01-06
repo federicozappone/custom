@@ -51,6 +51,9 @@ M.git = {
     ["<leader>gt"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame" },
     ["<leader>gs"] = { "<cmd>Telescope git_status<cr>", "Git status" },
     ["<leader>gc"] = { "<cmd>Telescope git_commits<cr>", "Git commits" },
+    ["<leader>gf"] = { "<cmd>Telescope git_bcommits<cr>", "Git commits parent" },
+    ["<leader>gd"] = { "<cmd>DiffviewOpen<cr>", "Git head diff" },
+    ["<leader>gx"] = { "<cmd>DiffviewClose<cr>", "Close Diff View" },
   },
 }
 

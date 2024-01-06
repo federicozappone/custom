@@ -202,6 +202,11 @@ local plugins = {
   },
 
   {
+    lazy = false,
+    "sindrets/diffview.nvim",
+  },
+
+  {
     event = "BufRead",
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
