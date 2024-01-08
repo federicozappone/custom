@@ -2,7 +2,7 @@
   "header guard": {
     "prefix": "header_guard",
     "body": [
-      "#ifndef ${1:DEBUG}_H",
+      "#ifndef ${1:${TM_FILENAME_BASE}}_H",
       "#define $1_H",
       "$0",
       "#endif  // $1_H"
@@ -13,12 +13,12 @@
   "header": {
     "prefix": "header",
     "body": [
-      "#ifndef ${1:DEBUG}_H",
+      "#ifndef ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}_H",
       "#define $1_H",
       "",
       "namespace ${2:name} {",
       "",
-      "class ${3:MyClass}",
+      "class ${3:${TM_FILENAME_BASE/(^\\w*)|(-)/${1:/pascalcase}${2:+ }/g}}",
       "{",
       "public:",
       "\t$3() = default;",
@@ -46,7 +46,7 @@
       "",
       "namespace ${2:name} {",
       "",
-      "class ${3:MyClass}",
+      "class ${3:Class_Name}",
       "{",
       "public:",
       "\t$3();",
@@ -65,7 +65,7 @@
   "class": {
     "prefix": "class",
     "body": [
-      "class ${1:MyClass}",
+      "class ${1:Class_Name}",
       "{",
       "public:",
       "\t$1() = default;",
@@ -84,7 +84,7 @@
   "simple class": {
     "prefix": "simple_class",
     "body": [
-      "class ${1:MyClass}",
+      "class ${1:Class_Name}",
       "{",
       "public:",
       "\t$1();",

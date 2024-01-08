@@ -1,5 +1,5 @@
 {
-  "tnippet template": {
+  "Snippet template": {
     "prefix": "snip",
     "body": [
       "  \"Snippet Template\": {",
@@ -8,7 +8,7 @@
       "      \"\"",
       "    ],",
       "    \"description\": \"Snippet description\"",
-      "  },"
+      "  }"
     ],
     "description": "Snippet template"
   }

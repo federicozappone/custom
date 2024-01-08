@@ -154,7 +154,7 @@
       "set(INSTALL_BIN_DIR     \\${CMAKE_CURRENT_LIST_DIR}/bin)",
       "set(INSTALL_LIB_DIR     \\${CMAKE_CURRENT_LIST_DIR}/lib)"
     ],
-    "description": "CMake standard install dirs"
+    "description": "Add install dirs"
   },
 
   "Install binaries": {
@@ -236,5 +236,50 @@
       "endif (DOXYGEN_FOUND)"
     ],
     "description": "Add Doxygen documentation generation"
+  },
+
+  "Subdirectory": {
+    "prefix": "subdirectory",
+    "body": [
+      "add_subdirectory(${1:subdirectory})"
+    ],
+    "description": "Add subdirectory"
+  },
+
+  "Install Binary": {
+    "prefix": "install_bin",
+    "body": [
+      "install(TARGETS ${1:main} DESTINATION ${INSTALL_BIN_DIR})"
+    ],
+    "description": "Install binary"
+  },
+
+  "Install Library": {
+    "prefix": "install_lib",
+    "body": [
+      "install(TARGETS ${1:library} DESTINATION ${INSTALL_LIB_DIR})"
+    ],
+    "description": "Install library"
+  },
+
+  "Install Header": {
+    "prefix": "install_header",
+    "body": [
+      "install(FILES ${1:header.h} DESTINATION ${INSTALL_INCLUDE_DIR})"
+    ],
+    "description": "Install header"
+  },
+
+  "Add Library": {
+    "prefix": "library",
+    "body": [
+      "set(SOURCE_FILES",
+      "  ${1:library}.h",
+      "  $1.cpp",
+      ")",
+      "",
+      "add_library($1 SHARED STATIC ${SOURCE_FILES})"
+    ],
+    "description": "Add library"
   }
 }
