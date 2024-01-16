@@ -8,7 +8,7 @@ M.cmp = {
 }
 
 M.telescope = {
-  extensions_list = { "themes", "terms", "fzf", "luasnip", "persisted", "file_browser" },
+  extensions_list = { "themes", "terms", "luasnip", "persisted", "file_browser" },
 }
 
 M.treesitter = {
@@ -26,6 +26,7 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "rust",
+    "bash",
   },
   indent = {
     enable = true,

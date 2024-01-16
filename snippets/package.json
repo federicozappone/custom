@@ -6,13 +6,17 @@
         "language": ["cpp"],
         "path": "./cpp.json"
       },
-        {
+      {
         "language": ["cpp"],
         "path": "./cppdoc.json"
       },
       {
         "language": ["cmake"],
         "path": "./cmake.json"
+      },
+      {
+        "language": ["cmake"],
+        "path": "./ros2_cmake.json"
       },
       {
         "language": ["xml"],

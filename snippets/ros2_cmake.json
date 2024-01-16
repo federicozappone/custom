@@ -1,0 +1,52 @@
+{
+  "Link idl": {
+    "prefix": "idl",
+    "body": [
+      "rosidl_get_typesupport_target(cpp_typesupport_target \"\\${PROJECT_NAME}\" \"rosidl_typesupport_cpp\")",
+      "target_link_libraries(${1:main} \"\\${cpp_typesupport_target}\""
+    ],
+    "description": "ROS2 idl link"
+  },
+
+    "ROS2 Install Dirs": {
+    "prefix": "install",
+    "body": [
+      "install(DIRECTORY",
+      "  launch",
+      "  urdf",
+      "  rviz",
+      "  DESTINATION share/\\${PROJECT_NAME})"
+    ],
+    "description": "Install common directories for ROS2"
+  },
+
+  "ROS2 Tests": {
+    "prefix": "tests",
+    "body": [
+      "if(BUILD_TESTING)",
+      "  find_package(ament_cmake_gtest REQUIRED)",
+      "  ament_add_gtest(\\${PROJECT_NAME}_tutorial_test test/tutorial_test.cpp)",
+      "  target_include_directories(\\${PROJECT_NAME}_tutorial_test PUBLIC",
+      "    $<BUILD_INTERFACE:\\${CMAKE_CURRENT_SOURCE_DIR}/include>",
+      "    $<INSTALL_INTERFACE:include>",
+      "  )",
+      "  ament_target_dependencies(\\${PROJECT_NAME}_tutorial_test",
+      "    std_msgs",
+      "  )",
+      "  target_link_libraries(\\${PROJECT_NAME}_tutorial_test name_of_local_library)",
+      "endif()",
+      "",
+      "# Add the following line to package.xml",
+      "# <test_depend>ament_cmake_gtest</test_depend>"
+    ],
+    "description": "Add testing for ROS2"
+  },
+
+  "Compile Commands Export": {
+    "prefix": "compile_commands",
+    "body": [
+      "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)"
+    ],
+    "description": "Compile commands flag"
+  }
+}
