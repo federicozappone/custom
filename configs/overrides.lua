@@ -84,7 +84,10 @@ M.mason = {
 -- git support in nvimtree
 M.nvimtree = {
   view = {
-    adaptive_size = true,
+    -- adaptive_size = true,
+    width = {
+      max = 60,
+    },
   },
   git = {
     enable = true,
@@ -107,12 +110,16 @@ M.nvimtree = {
     },
   },
   renderer = {
+    -- symlink_destination = false,
     highlight_git = true,
     icons = {
       show = {
         git = true,
       },
     },
+  },
+  filters = {
+    custom = { ".cache", "CMakeFiles" },
   },
 }
 

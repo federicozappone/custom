@@ -65,7 +65,7 @@ M.neogen = {
 
 M.telescope = {
   n = {
-    ["<C-n>"] = { "<cmd>Telescope file_browser<cr>", "File browser" },
+    -- ["<C-n>"] = { "<cmd>Telescope file_browser<cr>", "File browser" },
     ["<leader>fg"] = { "<cmd>Telescope git_files<cr>", "Git files" },
     ["<leader>fq"] = { "<cmd>Telescope persisted<cr>", "Persisted" },
     ["<leader>fs"] = { "<cmd>Telescope luasnip<cr>", "Snippets" },

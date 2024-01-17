@@ -235,11 +235,6 @@ local plugins = {
   },
 
   {
-    "nvim-tree/nvim-tree.lua",
-    enabled = false,
-  },
-
-  {
     lazy = false,
     "Badhi/nvim-treesitter-cpp-tools",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
