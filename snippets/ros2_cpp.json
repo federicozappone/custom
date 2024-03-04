@@ -604,6 +604,69 @@
       "}"
     ],
     "description": "Simple MoveIt2 application"
-  }
+  },
+
+  "ROS2 Node Main": {
+    "prefix": "nodemain",
+    "body": [
+      "#include <rclcpp/rclcpp.hpp>",
+      "",
+      "int main(int argc, char *argv[])",
+      "{",
+      "  setvbuf(stdout, NULL, _IONBF, BUFSIZ);",
+      "  rclcpp::init(argc, argv);",
+      "",
+      "  rclcpp::NodeOptions options;",
+      "  auto node = std::make_shared<${1:Node}>()",
+      "",
+      "  rclcpp::spin(node);",
+      "  rclcpp::shutdown();",
+      "",
+      "  return 0;",
+      "}"
+    ],
+    "description": "ROS2 Node Main"
+  },
+
+  "Publisher Declaration": {
+    "prefix": "pubdec",
+    "body": [
+      "rclcpp::Publisher<${1:std_msgs::msg::String}>::SharedPtr ${2:_publisher};"
+    ],
+    "description": "Publisher Declaration"
+  },
+
+  "Subscriber Declaration": {
+    "prefix": "subdec",
+    "body": [
+      "rclcpp::Subscription<${1:std_msgs::msg::String}>::SharedPtr ${2:_subscriber};"
+    ],
+    "description": "Subscriber Declaration"
+  },
+
+  "Publisher Instantiation": {
+    "prefix": "pubinst",
+    "body": [
+      "_publisher = this->create_publisher<${1:std_msgs::msg::String}>(\"${2:topic_name}\", ${3:10});"
+    ],
+    "description": "Publisher Instantiation"
+  },
+
+  "Subscriber Instantiation": {
+    "prefix": "subinst",
+    "body": [
+      "_subscriber = this->create_subscription<${1:std_msgs::msg::String}>(",
+      "      \"${2:topic_name}\", ${3:10}, std::bind(&${4:Sample_Node}::${5:subscriber_callback}, this, std::placeholders::_1));"
+    ],
+    "description": "Subscriber Instantiation"
+  },
+
+"Node Template": {
+  "prefix": "nodetemplate",
+  "body": [
+    " : public rclcpp::Node"
+  ],
+  "description": "Note Template"
+}
 
 }
