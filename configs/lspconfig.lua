@@ -40,6 +40,7 @@ lspconfig["pylsp"].setup {
         pycodestyle = {
           enabled = true,
           ignore = {
+            "E402",
             "E121",
             "E123",
             "E124",

@@ -86,7 +86,7 @@ M.nvimtree = {
   view = {
     -- adaptive_size = true,
     width = {
-      max = 60,
+      max = 40,
     },
   },
   git = {
@@ -119,7 +119,7 @@ M.nvimtree = {
     },
   },
   filters = {
-    custom = { ".cache", "CMakeFiles" },
+    custom = { "CMakeFiles" },
   },
 }
 

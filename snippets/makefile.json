@@ -13,7 +13,7 @@
       "	mkdir -p build",
       "",
       "clean:",
-      "	rm -rf build lib bin include doc/html doc/latex",
+      "	rm -rf build lib bin doc/html doc/latex",
       "",
       "install: build",
       "	cd build && make install",

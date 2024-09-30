@@ -99,6 +99,17 @@ M.spider = {
   },
 }
 
+M.moveline = {
+  n = {
+    ["M-k"] = { "<cmd> lua require'moveline'.up<cr>", "Moveline-up"},
+    ["M-j"] = { "<cmd> lua require'moveline'.down<cr>", "Moveline-up"},
+  },
+  v = {
+    ["M-k"] = { "<cmd> lua require'moveline'.block_up<cr>", "Moveline-up"},
+    ["M-j"] = { "<cmd> lua require'moveline'.block_down<cr>", "Moveline-up"},
+  }
+}
+
 M.persisted = {
   n = {
     ["<leader>qs"] = { "<cmd>SessionLoadLast<cr>", "Restore the session for the current directory" },
@@ -130,47 +141,6 @@ M.cpp = {
     ["<leader>cd"] = { "<cmd>TSCppDefineClassFunc<cr>", "Define Class Functions" },
     ["<leader>cc"] = { "<cmd>TSCppMakeConcreteClass<cr>", "Make Concrete Class" },
     ["<leader>cs"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch source header" },
-  },
-}
-
-M.trouble = {
-  n = {
-    ["<leader>xx"] = {
-      function()
-        vim.cmd "TroubleToggle"
-      end,
-      "Trouble",
-    },
-    ["<leader>xw"] = {
-      function()
-        vim.cmd "Trouble workspace_diagnostics"
-      end,
-      "Trouble workspace_diagnostics",
-    },
-    ["<leader>xd"] = {
-      function()
-        vim.cmd "Trouble document_diagnostics"
-      end,
-      "Trouble document_diagnostics",
-    },
-    ["<leader>xl"] = {
-      function()
-        vim.cmd "Trouble loclist"
-      end,
-      "Trouble loclist",
-    },
-    ["<leader>xq"] = {
-      function()
-        vim.cmd "Trouble quickfix"
-      end,
-      "Trouble quickfix",
-    },
-    ["gr"] = {
-      function()
-        vim.cmd "Trouble lsp_references"
-      end,
-      "Trouble lsp_references",
-    },
   },
 }
 
